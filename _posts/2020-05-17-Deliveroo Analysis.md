@@ -26,8 +26,7 @@ Despite having an advanced degree in Computer Science and working as a sort-of-s
 
 5. Touch Typing: Imagine having to use a pencil taped to a brick every time you want to write something. That's what using a keyboard felt like to me. I decided to make the interface between my brain and the computer as seamless as possible, and learnt to touch type. Best investment of my time ever!
 
-
-![engelbart.PNG](attachment:0e3e6867-6c15-448e-9743-30292a7909c0.PNG)
+![png](/images/2020-05-17/engelbart.PNG)
 
 # Getting the data
 The first step of any data project is to get the data into a usable format (Most often a table), clean it (Get rid off meaningless/null values) and enrich with derived fields that will be utilized in the analysis.
