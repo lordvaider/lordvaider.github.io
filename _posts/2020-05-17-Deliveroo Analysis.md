@@ -1,6 +1,6 @@
 # Deliveroo Data Analysis
 
-1. TOC
+* TOC
 {:toc}
 
 In this notebook, my goal is to analyse my Deliveroo order data starting May 2018 and see what I can learn about myself from it.
