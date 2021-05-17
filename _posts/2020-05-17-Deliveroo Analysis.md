@@ -283,69 +283,13 @@ display(summ)
 ```
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>No_Orders</th>
-      <th>No_Items</th>
-      <th>Tot_Value</th>
-      <th>Avg Order Value</th>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2018</th>
-      <td>88.0</td>
-      <td>182.0</td>
-      <td>1302.60</td>
-      <td>14.80</td>
-    </tr>
-    <tr>
-      <th>2019</th>
-      <td>162.0</td>
-      <td>406.0</td>
-      <td>2681.01</td>
-      <td>16.55</td>
-    </tr>
-    <tr>
-      <th>2020</th>
-      <td>66.0</td>
-      <td>150.0</td>
-      <td>1228.76</td>
-      <td>18.62</td>
-    </tr>
-    <tr>
-      <th>Total</th>
-      <td>316.0</td>
-      <td>738.0</td>
-      <td>5212.37</td>
-      <td>16.49</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|       | No_Orders | No_Items | Tot_Value | Avg Order Value |
+|-------|-----------|----------|-----------|-----------------|
+| Year  |           |          |           |                 |
+| 2018  | 88.0      | 182.0    | 1302.60   | 14.80           |
+| 2019  | 162.0     | 406.0    | 2681.01   | 16.55           |
+| 2020  | 66.0      | 150.0    | 1228.76   | 18.62           |
+| Total | 316.0     | 738.0    | 5212.37   | 16.49           |
 
 
 Broadly speaking, not much change in consumption frequency from 2018 to 2019 (Given that 2018 was half a year worth of data). On average, I ordered in 3 times a week.
@@ -1507,7 +1451,7 @@ item_analysis('Shake Shack', df)
 </style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
