@@ -1508,18 +1508,11 @@ item_analysis('Shake Shack', df)
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
       <th>Avg Price</th>
       <th>Item Type</th>
-    </tr>
-    <tr>
-      <th>Item</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
