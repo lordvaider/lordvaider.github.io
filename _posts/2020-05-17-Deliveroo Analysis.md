@@ -57,7 +57,7 @@ As a first step, I wrote some code to parse the email receipts that I get from D
     - {Restaurant Name} has accepted your order!
     - {Restaurant Name} has received your order!
     
-    However, as I later realised, I could actually push the branching into the regexp itself, and use just one: "{Restaurant Name} has (|accepted|received) your order!" This change avoided blowing up the size of the code and also exorcised the date-based check.       
+    However, as I later realised, I could actually push the branching into the regexp itself, and use just one: "{Restaurant Name} has (\|accepted\|received) your order!" This change avoided blowing up the size of the code and also exorcised the date-based check.       
 
  3. __The price convention seemed to change randomly:__ This was a subtle issue, and I actually noticed it when I was deep in the __ANALYSIS!__ stage. I was plotting the distribution of order sizes, and found that I had spent £150 on a single order at Dishoom, which I did not remember. 
  
