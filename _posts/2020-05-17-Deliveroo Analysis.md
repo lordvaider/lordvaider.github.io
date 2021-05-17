@@ -533,7 +533,7 @@ display(gbc)
 ```
 
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -547,7 +547,7 @@ display(gbc)
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe" width="50%">
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
