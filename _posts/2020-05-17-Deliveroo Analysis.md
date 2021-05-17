@@ -417,7 +417,7 @@ plt.show()
 
 
     
-![png](output_18_0.png)
+![png](/images/2020-05-17/output_18_0.png)
     
 
 
@@ -455,7 +455,7 @@ plt.show()
 
 
     
-![png](output_20_0.png)
+![png](/images/2020-05-17/output_20_0.png)
     
 
 
@@ -490,7 +490,7 @@ plt.show()
 
 
     
-![png](output_22_0.png)
+![png](/images/2020-05-17/output_22_0.png)
     
 
 
@@ -549,19 +549,19 @@ for idx, year in enumerate(years):
 
 
     
-![png](output_24_0.png)
+![png](/images/2020-05-17/output_24_0.png)
     
 
 
 
     
-![png](output_24_1.png)
+![png](/images/2020-05-17/output_24_1.png)
     
 
 
 
     
-![png](output_24_2.png)
+![png](/images/2020-05-17/output_24_2.png)
     
 
 
@@ -694,7 +694,7 @@ plt.show()
 
 
     
-![png](output_29_0.png)
+![png](/images/2020-05-17/output_29_0.png)
     
 
 
@@ -721,7 +721,7 @@ plt.show()
 
 
     
-![png](output_31_0.png)
+![png](/images/2020-05-17/output_31_0.png)
     
 
 
@@ -993,7 +993,7 @@ plt.show()
 
 
     
-![png](output_39_0.png)
+![png](/images/2020-05-17/output_39_0.png)
     
 
 
@@ -1021,7 +1021,7 @@ plt.show()
 
 
     
-![png](output_42_0.png)
+![png](/images/2020-05-17/output_42_0.png)
     
 
 
@@ -1039,7 +1039,7 @@ plt.show()
 
 
     
-![png](output_44_0.png)
+![png](/images/2020-05-17/output_44_0.png)
     
 
 
@@ -1057,7 +1057,7 @@ plt.show()
 
 
     
-![png](output_46_0.png)
+![png](/images/2020-05-17/output_46_0.png)
     
 
 
@@ -1091,7 +1091,7 @@ plt.show()
 
 
     
-![png](output_49_0.png)
+![png](/images/2020-05-17/output_49_0.png)
     
 
 
@@ -1477,7 +1477,7 @@ tl_analysis('Shake Shack', df)
 
 
     
-![png](output_68_1.png)
+![png](/images/2020-05-17/output_68_1.png)
     
 
 
@@ -1613,7 +1613,7 @@ tl_analysis('Byron', df)
 
 
     
-![png](output_74_1.png)
+![png](/images/2020-05-17/output_74_1.png)
     
 
 
@@ -1746,7 +1746,7 @@ tl_analysis('Ping Pong', df)
 
 
     
-![png](output_79_1.png)
+![png](/images/2020-05-17/output_79_1.png)
     
 
 
@@ -1880,7 +1880,7 @@ tl_analysis('Rusty Bike', df)
 
 
     
-![png](output_84_1.png)
+![png](/images/2020-05-17/output_84_1.png)
     
 
 
@@ -1979,7 +1979,7 @@ tl_analysis('The Pizza Room', df)
 
 
     
-![png](output_89_1.png)
+![png](/images/2020-05-17/output_89_1.png)
     
 
 
@@ -2093,7 +2093,7 @@ tl_analysis('Motu Indian Kitchen', df)
 
 
     
-![png](output_94_1.png)
+![png](/images/2020-05-17/output_94_1.png)
     
 
 
@@ -2169,7 +2169,7 @@ Eagle-eyed readers will notice that this table is not consistent with the order 
 
 Turns out Motu will let you add extra food to your Box for 1 order, and the Deliveroo email receipt lists it all under the Box for 1. I didn't account for this case while writing my email parser (And I'm not sure how I should, since the unit prices of the individual items aren't given). Hence the £18.07 is a an average of the vanilla, no-frills-attached Boxes for 1 and the fancier, with-extra-fixin's Boxes for 1, like the one below.
 
-![Motu_cornercase.PNG](attachment:e862508d-234e-4378-9086-fb4f3eb5d120.PNG)
+![Motu_cornercase.png](attachment:e862508d-234e-4378-9086-fb4f3eb5d120.PNG)
 
 ## Dishoom
 
@@ -2198,7 +2198,7 @@ tl_analysis('Dishoom', df)
 
 
     
-![png](output_100_1.png)
+![png](/images/2020-05-17/output_100_1.png)
     
 
 
