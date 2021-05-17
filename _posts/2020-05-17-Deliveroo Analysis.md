@@ -283,9 +283,8 @@ display(summ)
 ```
 
 
-|       | No_Orders | No_Items | Tot_Value | Avg Order Value |
+| Year  | No_Orders | No_Items | Tot_Value | Avg Order Value |
 |-------|-----------|----------|-----------|-----------------|
-| Year  |           |          |           |                 |
 | 2018  | 88.0      | 182.0    | 1302.60   | 14.80           |
 | 2019  | 162.0     | 406.0    | 2681.01   | 16.55           |
 | 2020  | 66.0      | 150.0    | 1228.76   | 18.62           |
