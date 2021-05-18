@@ -915,7 +915,9 @@ Shake Shack is my favourite restaurant, and with 47 orders, the data supports th
 
 __Consumption:__
 
+
 Total Number of Orders:  47
+
 
 Total Value of Orders:  707.4
 
