@@ -919,14 +919,14 @@ __Consumption:__
 Total Number of Orders:  47
 
 
-Total Value of Orders:  707.4
+Total Value of Orders:  £707.4
 
 
 __Cost:__
 
-Average Order Value:  15.05
+Average Order Value:  £15.05
 
-Median Order Value:  17.45
+Median Order Value:  £17.45
 
 
 __Order__ __History:__
@@ -1043,23 +1043,23 @@ For old time's sake then, here are the Byron stats:
 
 __Consumption:__
 
-	Total Number of Orders:  31
-	
-	Total Value of Orders:  679.3
+Total Number of Orders:  31
+
+Total Value of Orders:  £679.3
 
 __Cost:__
 
-	Average Order Value:  21.91
+Average Order Value:  £21.91
 
-	Median Order Value:  20.65
+Median Order Value:  £20.65
 
 __Order History:__
 
-	First Order: 2018-05-16
+First Order: 2018-05-16
 
-	Last Order:  2019-11-27
+Last Order:  2019-11-27
 
-	Order Frequency:  1.66  per month
+Order Frequency:  1.66  per month
    
 ### Summary Graphs    
 ![png](/images/2020-05-17/output_74_1.png)
@@ -1067,8 +1067,6 @@ __Order History:__
 
 
 ### Item-wise Analysis
-
-
 
 <div>
 <style scoped>
@@ -1087,19 +1085,12 @@ __Order History:__
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
       <th>Avg Price</th>
       <th>Item Type</th>
-    </tr>
-    <tr>
-      <th>Item</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+    </tr>  
   </thead>
   <tbody>
     <tr>
@@ -1174,23 +1165,23 @@ Ping Pong was the first restaurant I ever ate at in London. I've always enjoyed 
 
 __Consumption:__
 	
-	Total Number of Orders:  12
+Total Number of Orders:  12
 
-	Total Value of Orders:  238.25
+Total Value of Orders:  £238.25
 
 __Cost:__
 	
-	Average Order Value:  19.85
-	
-	Median Order Value:  19.95
+Average Order Value:  £19.85
+
+Median Order Value:  £19.95
 
 __Order History:__
 	
-	First Order: 2019-01-26
-	
-	Last Order:  2019-05-09
-	
-	Order Frequency:  3.5  per month
+First Order: 2019-01-26
+
+Last Order:  2019-05-09
+
+Order Frequency:  3.5  per month
     
 ### Summary Graphs
 ![png](/images/2020-05-17/output_79_1.png)
@@ -1217,16 +1208,10 @@ __Order History:__
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
       <th>Avg Price</th>
-    </tr>
-    <tr>
-      <th>Item</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1301,27 +1286,25 @@ Rusty Bike was my go-to place when I first moved to London. The food was too ext
 
 ### Summary Stats
 
-
-
 __Consumption:__
 	
-	Total Number of Orders:  21
-	
-	Total Value of Orders:  346.1
+Total Number of Orders:  21
+
+Total Value of Orders:  346.1
 
 __Cost:__
 	
-	Average Order Value:  16.48
-	
-	Median Order Value:  14.15
+Average Order Value:  16.48
+
+Median Order Value:  14.15
 
 __Order History:__
 	
-	First Order: 2018-07-27
-	
-	Last Order:  2020-09-23
-	
-	Order Frequency:  0.8  per month
+First Order: 2018-07-27
+
+Last Order:  2020-09-23
+
+Order Frequency:  0.8  per month
     
     
 ### Summary Graphs    
@@ -1349,18 +1332,11 @@ __Order History:__
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
       <th>Avg Price</th>
       <th>Item Type</th>
-    </tr>
-    <tr>
-      <th>Item</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1399,30 +1375,32 @@ I have eaten a lot of pizza in my life and The Pizza Room is something special.
 ### Summary Stats
 
 
+__Consumption:__
 
-Consumption:
-	Total Number of Orders:  18
-	Total Value of Orders:  419.54
-Cost:
-	Average Order Value:  23.31
-	Median Order Value:  20.94
-Order History:
-	First Order: 2018-08-10
-	Last Order:  2020-11-25
-	Order Frequency:  0.64  per month
-    
-    
-    
+Total Number of Orders:  18
 
+Total Value of Orders:  £419.54
 
-    
+__Cost:__
+
+Average Order Value:  £23.31
+
+Median Order Value:  £20.94
+
+__Order__ __History:__
+
+First Order: 2018-08-10
+
+Last Order:  2020-11-25
+
+Order Frequency:  0.64  per month
+ 
+   
 ![png](/images/2020-05-17/output_89_1.png)
     
 
 
 ### Item-wise Analysis
-
-
 
 
 <div>
@@ -1442,18 +1420,11 @@ Order History:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
       <th>Avg Price</th>
       <th>Item Type</th>
-    </tr>
-    <tr>
-      <th>Item</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1492,7 +1463,7 @@ Order History:
 
 Wherever I go, the Quattro Formaggi or 4 Cheese pizza has been my go-to pizza order for a while. What makes the Pizza Room Quattro Formaggi special is:
 
-1. __Tomato Sauce:__ Nowhere else have I seen Pizza Room levels of clarity on this topic. They are upfront about the fact that the default option is no tomato sauce (Traditionally, the QF is a 'White Pizza'). However, if you'd like tomato sauce, they will add it on for a fee. I really like the fact that they charge me a nominal amount for the sauce and hence eliminate all uncertainty - At other restaurants I have to add a delivery note saying "If you don't typically add tomato sauce to the Quattro Formaggi pizza, please can you do so in this case?" and then pace nervously till the pizza gets delivered.
+1. __Tomato__ __Sauce:__ Nowhere else have I seen Pizza Room levels of clarity on this topic. They are upfront about the fact that the default option is no tomato sauce (Traditionally, the QF is a 'White Pizza'). However, if you'd like tomato sauce, they will add it on for a fee. I really like the fact that they charge me a nominal amount for the sauce and hence eliminate all uncertainty - At other restaurants I have to add a delivery note saying "If you don't typically add tomato sauce to the Quattro Formaggi pizza, please can you do so in this case?" and then pace nervously till the pizza gets delivered.
 
 2. __Add-Ons:__ Definitely add green chillies to your QF pizza for a zingy complement to all the cheese.
 
@@ -1508,16 +1479,25 @@ Motu translates to "Fatty" or "Fatboy", and they have shipped me a lot of calori
 
 
 
-Consumption:
-	Total Number of Orders:  32
-	Total Value of Orders:  565.75
-Cost:
-	Average Order Value:  17.68
-	Median Order Value:  17.5
-Order History:
-	First Order: 2018-12-08
-	Last Order:  2020-01-16
-	Order Frequency:  2.38  per month  
+__Consumption:__
+
+Total Number of Orders:  32
+
+Total Value of Orders:  £565.75
+
+__Cost:__
+
+Average Order Value:  £17.68
+
+Median Order Value:  £17.5
+
+__Order__ __History:__
+
+First Order: 2018-12-08
+
+Last Order:  2020-01-16
+
+Order Frequency:  2.38  per month  
     
 
     
@@ -1544,18 +1524,11 @@ Order History:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
       <th>Avg Price</th>
       <th>Item Type</th>
-    </tr>
-    <tr>
-      <th>Item</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -1599,24 +1572,28 @@ A lot of people love to shit on Dishoom. These are the fools that equate contrar
 
 ### Summary Stats
 
+__Consumption:__
 
+Total Number of Orders:  6
 
-Consumption:
-	Total Number of Orders:  6
-	Total Value of Orders:  166.2
-Cost:
-	Average Order Value:  27.7
-	Median Order Value:  21.9
-Order History:
-	First Order: 2020-08-14
-	Last Order:  2020-12-19
-	Order Frequency:  1.42  per month
-    
-    
-    
+Total Value of Orders:  £166.2
 
+__Cost:__
+
+Average Order Value:  £27.7
+
+Median Order Value:  £21.9
+
+__Order__ __History:__
+
+First Order: 2020-08-14
+
+Last Order:  2020-12-19
+
+Order Frequency:  1.42  per month
 
     
+### Summary Graphs    
 ![png](/images/2020-05-17/output_100_1.png)
     
 
@@ -1640,18 +1617,11 @@ Order History:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Item</th>
       <th>Qty</th>
       <th>Value</th>
       <th>Avg Price</th>
       <th>Item Type</th>
-    </tr>
-    <tr>
-      <th>Item</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
