@@ -1787,7 +1787,7 @@ The Ping Pong item list shows some of the limitations of the prefix clustering a
 
 Not much too say about these items; Just extremely tasty, high quality dimsums that always left me happy and satisfied. How I wish they'd open up a few [dark kitchens](https://www.bbc.co.uk/news/business-47978759)!
 
-The only thing that irritates me about this table is that I paid £9.30 for tow bottles of Asahi, when I could've bought 4 bottles from Tesco for £5.50. Paying for drink markups is understandable when you're dining at the restaurant, but it's foolish when you get food delivered at home!
+The only thing that irritates me about this table is that I paid £9.30 for two bottles of Asahi, when I could've bought 4 bottles from Tesco for £5.50. Paying for drink markups is understandable when you're dining at the restaurant, but it's foolish when you get food delivered at home!
 
 ## Rusty Bike
 
