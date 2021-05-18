@@ -914,26 +914,26 @@ Shake Shack is my favourite restaurant, and with 47 orders, the data supports th
 ### Summary Stats
 
 __Consumption:__
-	
-	Total Number of Orders:  47
 
-	Total Value of Orders:  707.4
+Total Number of Orders:  47
+
+Total Value of Orders:  707.4
 
 
 __Cost:__
 
-	Average Order Value:  15.05
+Average Order Value:  15.05
 
-	Median Order Value:  17.45
+Median Order Value:  17.45
 
 
 __Order__ __History:__
 
-	First Order: 2018-11-22
+First Order: 2018-11-22
 
-	Last Order:  2020-12-21
+Last Order:  2020-12-21
 
-	Order Frequency:  1.86  per month
+Order Frequency:  1.86  per month
     
     
 ![png](/images/2020-05-17/output_68_1.png)
