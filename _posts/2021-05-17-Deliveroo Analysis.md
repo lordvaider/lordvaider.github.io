@@ -937,7 +937,8 @@ Last Order:  2020-12-21
 
 Order Frequency:  1.86  per month
     
-    
+
+### Summary Graphs    
 ![png](/images/2020-05-17/output_68_1.png)
     
 
@@ -1040,21 +1041,27 @@ For old time's sake then, here are the Byron stats:
 
 ### Summary Stats
 
+__Consumption:__
 
-
-
-Consumption:
 	Total Number of Orders:  31
+	
 	Total Value of Orders:  679.3
-Cost:
+
+__Cost:__
+
 	Average Order Value:  21.91
+
 	Median Order Value:  20.65
-Order History:
+
+__Order History:__
+
 	First Order: 2018-05-16
+
 	Last Order:  2019-11-27
+
 	Order Frequency:  1.66  per month
    
-    
+### Summary Graphs    
 ![png](/images/2020-05-17/output_74_1.png)
     
 
@@ -1165,22 +1172,27 @@ Ping Pong was the first restaurant I ever ate at in London. I've always enjoyed 
 
 
 
-Consumption:
+__Consumption:__
+	
 	Total Number of Orders:  12
+
 	Total Value of Orders:  238.25
-Cost:
+
+__Cost:__
+	
 	Average Order Value:  19.85
+	
 	Median Order Value:  19.95
-Order History:
+
+__Order History:__
+	
 	First Order: 2019-01-26
+	
 	Last Order:  2019-05-09
+	
 	Order Frequency:  3.5  per month
     
-    
-    
-
-
-    
+### Summary Graphs
 ![png](/images/2020-05-17/output_79_1.png)
     
 
@@ -1291,22 +1303,28 @@ Rusty Bike was my go-to place when I first moved to London. The food was too ext
 
 
 
-Consumption:
+__Consumption:__
+	
 	Total Number of Orders:  21
+	
 	Total Value of Orders:  346.1
-Cost:
+
+__Cost:__
+	
 	Average Order Value:  16.48
+	
 	Median Order Value:  14.15
-Order History:
+
+__Order History:__
+	
 	First Order: 2018-07-27
+	
 	Last Order:  2020-09-23
+	
 	Order Frequency:  0.8  per month
     
     
-    
-
-
-    
+### Summary Graphs    
 ![png](/images/2020-05-17/output_84_1.png)
     
 
