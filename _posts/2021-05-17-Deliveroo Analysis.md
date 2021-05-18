@@ -73,32 +73,6 @@ I have shared the end result of these efforts in git repo here, in case any of y
 
 Eventually, I was able to get my data extraction working and got the raw data corresponding to (almost) all orders in a neat .csv file. Just scrolling through this file, I got a feeling of power. <s>Finally it was __ANALYSIS!__ time!</s> Finally, it was time to clean my data and get it into the right format!
 
-
-
-
-```python
-import pandas as pd
-import numpy as np
-from datetime import datetime
-import datetime as rdt
-import itertools
-import math
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-import matplotlib.units as munits
-import re
-import openpyxl
-from sklearn.cluster import KMeans
-from IPython.display import HTML
-```
-
-
-```python
-df = pd.read_excel(r"C:\Users\risha\Desktop\deliveroo_all_txt.xlsx")
-md = pd.read_excel(r"C:\Users\risha\Desktop\restaurant_metadata.xlsx")
-df = pd.merge(df, md, on='Restaurant', how='left')
-```
-
 ## Data Formatting + Cleaning
 
 In order to do useful ANALYSIS! on the data, it first needed some cleaning and formatting: 
@@ -126,30 +100,7 @@ In order to do useful ANALYSIS! on the data, it first needed some cleaning and f
    While it may be possible to automate the creation of this contextual dataset, I just did it manually. There are only 49 distinct restaurants that I ordered from and hence labelling them took less than 5 minutes.
 
 
-
-
-```python
-df = df.astype({'Date': 'datetime64'}) #1
-
-df['Value'] = df.Qty * df.Price #2
-df['OrderNo'] = df.groupby('Date').ngroup() #2
-df['Year'] = df.Date.dt.year
-
-df = df[df.Price != 0] #3
-
-df = df[df.Cuisine != 'Misc'] #3.5
-
-df['Item'] = df['Item'].apply(lambda r: r.replace('=E2=80=99', "'") ) #4
-```
-
 Once the data had been extracted, cleaned, formatted and enriched with external context, I spent 5 minutes gazing at it lovingly before diving into the __ANALYSIS!__
-
-
-```python
-df.head()
-```
-
-
 
 
 <div>
@@ -268,20 +219,6 @@ Once we answer these in the aggregate, we can do a more in-depth analysis to see
 For starters, I simply looked at the annual data.
 
 
-```python
-dfa = df.groupby('Year')
-
-summ = dfa.agg(
-    No_Orders = ('OrderNo', 'nunique'),
-    No_Items = ('OrderNo', 'count'),
-    Tot_Value = ('Value', 'sum')
-)    
-
-summ = summ.append(summ.sum().rename('Total'))
-summ['Avg Order Value'] = round(summ.Tot_Value/summ.No_Orders, 2)
-display(summ)
-```
-
 
 | Year  | No_Orders | No_Items | Tot_Value | Avg Order Value |
 |-------|-----------|----------|-----------|-----------------|
@@ -332,34 +269,7 @@ My dataset contains points for each order that I placed, and hence is not unifor
 
 This can be addressed by re-sampling the data into uniformly spaced buckets; For eg. Each day is a bucket and orders for that day feed into that bucket. Days with no orders get assigned zero. This graph correctly shows periods of no activity. 
 
-
-```python
-fig, ax = plt.subplots(figsize=(15,5))
-
-rf = dfa.get_group(2020)
-rf.index = rf.Date
-
-kf = rf.groupby(rf.Date.dt.date).agg({'Value': 'sum'})
-kf.index = pd.to_datetime(kf.index)
-val_us = kf['Value']
-
-#convert the value timeseries into uniformly sampled daily series
-vts = rf['Value'].resample('D').sum().fillna(0)
-val_s =  vts.rolling('D').sum()
-
-ax.set_title('Uniform v/s Non-Uniform Sampling', fontsize=18)
-ax.set_xlabel('Date')
-
-val_s.plot(color='green', label='Uniform Sampling')
-val_us.plot(lw=3, label='Non-Uniform Sampling')
-
-plt.legend(loc='upper left', fontsize=15)
-
-plt.show()
-```
-
-
-    
+   
 ![png](/images/2020-05-17/output_18_0.png)
     
 
@@ -376,28 +286,7 @@ One particular way to achieve this is to sum order activity over a lookback wind
 
 __Important Note:__ One last thing to observe from the graph below is that the smoothed graph isn't strictly better, as it sometimes omits juicy details. For eg. On 13 July 2019, I had 5 orders on the same day! 
 
-
-```python
-fig, ax = plt.subplots(figsize=(15,5))
-
-rf = df.loc[(df.Date > datetime(2019,6,1)) & (df.Date < datetime(2020, 6, 1))]
-rf = rf.groupby(rf.Date.dt.date).agg({'OrderNo': 'nunique'})
-rf.index = pd.to_datetime(rf.index)
-
-ots = rf['OrderNo'].resample('D').sum().fillna(0)
-sz = ots.rolling('D').sum()
-smoothsz = ots.rolling('7D').sum()/7
-
-ax.set_title('Effect of Smoothing', fontsize=18)
-smoothsz.plot(label='Weekly average', lw=2)
-sz.plot(label='Orders', lw=1)
-
-plt.legend(loc='upper right', fontsize=15)
-plt.show()
-```
-
-
-    
+   
 ![png](/images/2020-05-17/output_20_0.png)
     
 
@@ -405,31 +294,6 @@ plt.show()
 #### Sampling + Smoothing?
 
 I'm all about saving effort, and so the natural next thought was: What if, instead of resampling data into daily buckets and then smoothing it out using a weekly window, I just resampled into weekly buckets? As you can see the weekly sampled graph excludes a fair bit of detail, so I decided the short cut wasn't worth it.
-
-
-```python
-year = 2019
-fig, ax = plt.subplots(figsize=(15,5))
-rf = dfa.get_group(year)
-rf.index = rf.Date
-new_index = pd.date_range(start='{}-1-1'.format(year), end='{}-12-31'.format(year), freq="1D")
-
-# Sample daily and then smooth with lookback = week
-dts = rf['Value'].resample('D').sum().reindex(new_index, fill_value=0)    
-sdts = dts.rolling('7D').sum()
-
-# Sample weekly
-wts = rf['Value'].resample('W', closed='left', label='right').sum().fillna(0)
-
-ax.set_title('Sample+Smooth v/s Sample'.format(year), fontsize=18)  
-
-sdts.plot(color='green', lw=2, label='Sample Daily')
-wts.plot(color='red', lw=2, label='Sample Weekly')
-
-plt.legend(loc='upper left', fontsize=13)
-
-plt.show()
-```
 
 
     
@@ -442,56 +306,6 @@ plt.show()
 Putting together all the knowledge from the previous section, I was in a position to plot the graphs tracking the local consumption trends in each year. I wasn't sure about whether to use order value or number of orders as my consumption metric, so I went with both (As I explain below, their interplay also allows us to make some interesting inferences).
 
 
-```python
-def plot_overlapping_consumption_for_year(dfa, year):
-    fig, ax = plt.subplots(figsize=(15,5))
-    rf = dfa.get_group(year)
-    rf.index = rf.Date
-    
-    kf = rf.groupby(rf.Date.dt.date).agg({'OrderNo': 'nunique'})
-    kf.index = pd.to_datetime(kf.index)
-    
-    #get the set of indices for the full year
-    new_index = pd.date_range(start='{}-1-1'.format(year), end='{}-12-31'.format(year), freq="1D")
-    
-    # Convert the value timeseries into uniformly sampled daily series
-    vts = rf['Value'].resample('D').sum().reindex(new_index, fill_value=0)
-    ots = kf['OrderNo'].resample('D').sum().reindex(new_index, fill_value=0)
-    
-    # Apply smoothing
-    svts = vts.rolling('7D').sum()   
-    sots = ots.rolling('7D').sum()
-
-    # Plot value along one vertical axis
-    ax.set_title('Consumption trends {}'.format(year), fontsize=18)
-    ax.set_ylabel('Value')
-    # set the y limit so that the legend doesn't overlap with the graph
-    ax.set_ylim(0, max(svts)*1.2)
-      
-    svts.plot(color='green', label='Value')
-    
-    # Plot orders along the second vertical axis
-    ax2 = ax.twinx()
-    ax2.set_ylabel('Orders')  
-    ax2.set_ylim(0, max(sots)*1.2)
-    sots.plot(color='red', label='Orders')
-    
-    # hack from stackoverflow to get legends for both charts in one place
-    h1, l1 = ax.get_legend_handles_labels()
-    h2, l2 = ax2.get_legend_handles_labels()
-    ax.legend(h1+h2, l1+l2, loc='upper left', fontsize=13)
-    
-    plt.show()
-
-years = [2018, 2019, 2020]
-for idx, year in enumerate(years):
-    #plot_consumption_for_year(dfa, year)
-    plot_overlapping_consumption_for_year(dfa, year)
-
-```
-
-
-    
 ![png](/images/2020-05-17/output_24_0.png)
     
 
@@ -523,14 +337,6 @@ for idx, year in enumerate(years):
 ## Consumption by Cuisine
 
 The next logical prism to split the data is Cuisine. For starters, what is the distribution of cuisine preference?
-
-
-```python
-gbc = df.groupby('Cuisine').agg({'OrderNo': 'nunique', 'Value': 'sum'})
-gbc = gbc.sort_values(by='Value',ascending=False)
-gbc['Value Per Order'] = round(gbc.Value/gbc.OrderNo,1)
-display(gbc)
-```
 
 
 <div width="50%">
@@ -625,16 +431,6 @@ display(gbc)
 And the same data in pie chart format (As one can see, there is a fair bit of variance in the Value per Order for different cuisines, so Order share seemed like a more democratic metric to compare). Looks like Burgers and Indian food account for about 50% of my consumption!
 
 
-```python
-fig, ax = plt.subplots(figsize=(15, 8))
-ax.pie(gbc.OrderNo, labels=gbc.index, autopct='%1.1f%%')
-ax.set_title('Order Share by Cuisine', fontsize=18)
-ax.axis('equal')
-ax.legend(loc='right')
-
-plt.show()
-```
-
 
     
 ![png](/images/2020-05-17/output_29_0.png)
@@ -645,22 +441,6 @@ plt.show()
 
 I wanted to see how the distribution of various cuisines has varied over time, so plotted the following charts: My cuisine preferences appear to be pretty dynamic! However, this is probably a result of external factors rather than my personality changing from year to year. One such factor is the availability of restaurants on Deliveroo; If Shake Shack delivered to my house in 2018, I'm pretty sure burgers would be the chart-topper that year as well.
 
-
-```python
-fig, ax = plt.subplots(1, 3, figsize=(15, 5))
-years = [2018, 2019, 2020]
-
-for ix, yr in enumerate(years):
-    ydf = dfa.get_group(yr)
-    gbc = ydf.groupby('Cuisine').agg({'OrderNo': 'nunique', 'Value': 'sum'})
-    gbc = gbc.sort_values(by='OrderNo',ascending=False)
-    ax[ix].pie(gbc.OrderNo, labels=gbc.index, autopct='%1.1f%%')
-    ax[ix].set_title('Cuisine Dist by Year {}'.format(yr), fontsize=15)
-    ax[ix].axis('equal')
-    
-fig.tight_layout()
-plt.show()
-```
 
 
     
@@ -673,18 +453,6 @@ plt.show()
 One simple question to ask in this regard is, what is the favourite restaurant for each cuisine? As the pie charts above show, ordering behaviour is quite dynamic over time, so it makes sense to look at the favourite restaurant per cuisine per year. (I aggregated over Value in this case, since restaurants with the same cuisine would have prices closer to each other.)
 
 
-```python
-gbc = df.groupby(['Cuisine', 'rName', 'Year'], as_index=False ).agg({'Value': 'sum'})
-
-idx = gbc.groupby(['Cuisine', 'Year'])['Value'].idxmax()
-gbc = gbc.loc[idx]
-pby = gbc.pivot_table(index='Cuisine', columns='Year', values='rName', aggfunc=lambda x: ' '.join(x), fill_value= '')
-
-# Momo canteen shows up as the 2020 chinese favourite by default, but it should never show up in a favourites list
-pby[2020]['Chinese'] = ''
-
-display(pby)
-```
 
 
 <div>
@@ -784,15 +552,6 @@ Also included a fancy Tableau graph of this data, since just showing the max val
 
 Next, I broke down the data by restaurant. Here again, I looked at the overall total, and then looked at the distribution on a year by year basis.
 
-
-```python
-gbr = df.groupby('rName').agg({'OrderNo': 'nunique', 'Value': 'sum'})
-gbr = gbr.sort_values(by='Value',ascending=False)
-gbr['Avg Value'] = round(gbr.Value/gbr.OrderNo,1)
-tot = sum(gbr.Value)
-gbr = gbr.loc[gbr.Value > tot*0.03]
-display(gbr)
-```
 
 
 <div>
@@ -907,35 +666,7 @@ display(gbr)
 The pie charts below the order share of restaurants per year. I only included restaurants with > 5% order share to keep things readable.
 
 
-```python
-def get_fav_simple(gbo, year):
-    favs = gbo.loc[gbo.Date.dt.year == year, ['rName', 'Date']]
-    fbr = favs.groupby('rName').Date.count()
-    fbr = fbr.sort_values(ascending=False)
-    tot = sum(fbr)
-    fbr = fbr.loc[fbr>tot*0.05]
-    return fbr
-    
-def plot_pie_chart(ax, data, title):
-    ax.pie(data,labels=data.index,autopct='%1.1f%%', normalize=True, startangle=0)
-    ax.axis('equal')
-    ax.set_title(title)
 
-gbo = df.groupby(['Date', 'rName'], as_index=False).Value.sum()   
-
-years = [2018, 2019, 2020]
-fig, axes = plt.subplots(1, 3, figsize=(15, 4.3))
-   
-for idx, year in enumerate(years):
-    fbr = get_fav_simple(gbo, year)
-    plot_pie_chart(axes[idx], fbr, "Restaurant Distribution {}".format(year))
-    
-fig.tight_layout()
-plt.show()
-```
-
-
-    
 ![png](/images/2020-05-17/output_39_0.png)
     
 
@@ -952,51 +683,18 @@ __2020:__ Two cataclysmic events occurred in late 2019; A Chinese dude ate a bat
 
 Honestly, this section is just me flexing my newly developed plotting muscles...
 
-
-```python
-gbd = df.groupby(df.Date.dt.day_of_week).agg({'OrderNo': 'nunique', 'Value': 'sum'})
-fig, ax = plt.subplots(figsize=(15, 5))
-weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-ax.set_title('Distribution by day of the week', fontsize=18)
-ax.bar([weekdays[x] for x in gbd.index], gbd.OrderNo)
-plt.show()
-```
-
-
     
 ![png](/images/2020-05-17/output_42_0.png)
     
 
-
 Unsurprisingly, most of the food is ordered on the weekends. But why stop here? Let's take a look at:
 
 
-```python
-gbh = df.groupby(df.Date.dt.hour).agg({'OrderNo': 'nunique', 'Value': 'sum'})
-
-fig, ax = plt.subplots(figsize=(15, 5))
-ax.set_title('Distribution by hour of the day', fontsize=18)
-ax.bar(gbh.index, gbh.OrderNo)
-plt.show()
-```
-
-
-    
 ![png](/images/2020-05-17/output_44_0.png)
     
 
 
 Another anti-surprise, most of the food ordered during lunch and dinner, with more dinner orders than lunch orders. And because we live in an age of cheap compute, I decided to also plot...
-
-
-```python
-gbm = df.groupby(df.Date.dt.minute).agg({'OrderNo': 'nunique', 'Value': 'sum'})
-
-fig, ax = plt.subplots(figsize=(15, 5))
-ax.set_title('Distribution by minute of the hour', fontsize=18)
-ax.bar(gbm.index, gbm.OrderNo)
-plt.show()
-```
 
 
     
@@ -1013,24 +711,6 @@ As calculated before, my total spend on Deliveroo so far is __£5212.37__, which
 ### Distribution of Order Values
 
 The average price of an order is £16.49 and the median is £15.77. I've plotted the distribution below, and it's pretty obviously multimodal - For eg. The large concentration of orders at about £8 corresponds to the dessert orders. One can also see the larger orders when I ordered for a group of people (Seems like there were at least 7/8 such occasions).
-
-
-```python
-def plot_price_histogram(gbo, rName, ax, bins=20):
-    ax.hist(gbo, bins)
-    ax.set_title('Order Value Distribution: {}'.format(rName), fontsize=15)
-    
-fig, ax = plt.subplots(figsize=(5,4))
-
-gbo = df.groupby('OrderNo').Value.sum()
-
-ax.set_xlabel('Order Cost')
-ax.set_ylabel('No. of Orders')
-
-plot_price_histogram(gbo, 'All', ax, bins=40)
-
-plt.show()
-```
 
 
     
@@ -1060,23 +740,6 @@ Another approach would be to go full Physics and define food units in calories, 
 
 In the absence of clear answers, I decided to just calculate the 2 simplest metrics (Average Order Value and Average Item Value), and see which one made more sense.
 
-
-```python
-gbr = df.groupby(['rName', 'OrderNo'], as_index=False).agg(ord_val=('Value', 'sum'), ord_items=('Qty', 'sum'))
-# gbr = df.groupby(['rName', 'OrderNo'], as_index=False).agg({'OrderNo': 'nunique', 'Value': 'sum'})
-gbr = gbr.groupby('rName', as_index=False).agg(num_ord=('OrderNo', 'count'), tot_val=('ord_val', 'sum'), tot_items=('ord_items', 'sum'))
-gbr['Average Order Value'] = round(gbr.tot_val/gbr.num_ord, 2)
-gbr['Average Item Value'] = round(gbr.tot_val/gbr.tot_items, 2)
-gbr = gbr.loc[gbr.num_ord > 5]
-gbr = gbr.sort_values('num_ord', ascending=False)
-gbr = gbr[['rName', 'num_ord', 'Average Order Value', 'Average Item Value']]
-```
-
-
-```python
-gbr = gbr.sort_values('Average Item Value', ascending=False).reset_index(drop=True)
-display(HTML(gbr[['rName', 'Average Item Value']].head(10).to_html(index=False)))
-```
 
 
 <table border="1" class="dataframe">
@@ -1134,10 +797,6 @@ display(HTML(gbr[['rName', 'Average Item Value']].head(10).to_html(index=False))
 Off the bat, we can see that Item Value as a metric is giving nonsensical results - The top 3 items have Pizza restaurants (As predicted) and Motu Indian Kitchen, which has the massive "Box for 1" as a single item, but is hardly an expensive/high class restaurant. The other entries on the list are equally nonsensical (The Athenian? Rusty Bike?? Cookies & Cream???)
 
 
-```python
-gbr = gbr.sort_values('Average Order Value', ascending=False).reset_index(drop=True)
-display(HTML(gbr[['rName', 'Average Order Value']].head(10).to_html(index=False)))
-```
 
 
 <table border="1" class="dataframe">
@@ -1201,10 +860,7 @@ Another point in favour of the order metric - This list features the fancier pla
 In this section, I want to break down my orders from some of my favourite restaurants and see which items I ordered most, and provide some commentary.
 
 
-```python
-gbr = df.groupby('rName').agg({'OrderNo': 'nunique', 'Value': 'sum'})
-gbr = gbr.sort_values(by='Value',ascending=False)
-```
+
 
 ## Axes of Interest
 
@@ -1234,20 +890,7 @@ If I can't get the data from an external source, I have to look within. The only
 For certain restaurants this kind of binary categorization doesn't make sense - For eg. Ping Pong has a system of small plates, so all their items are Mains (or Sides). In such a case, forcing a divide into 2 categories creates an artificial distinction. There are ways to determine the correct number of clusters for a dataset, but I don't have a lot of expertise in these matters and hence decided to just take this as an input from the user.
 
 
-```python
-def get_item_categories(items, prices):
-    # guaranteed to get prices in increasing order
-    
-    km = KMeans(n_clusters=2)
-    km.fit(np.array(prices).reshape(-1,1))
-    labels = km.labels_
-    slabel = labels[0]
-    labels = ['Side' if x == slabel else 'Main' for x in labels]
-    
-    categories = {items[i]:labels[i] for i, _ in enumerate(items)}
 
-    return(categories)
-```
 
 ### Item Name Changes - Prefix Clustering
 
@@ -1262,135 +905,6 @@ The next version of this idea was to draw a directed edge from i -> j if lowerca
 This kind of clustering seems to work quite well for my dataset and didn't seem to cluster any distinct items together. However, as a future improvement, it might be a good idea to also consider the average item price as a co-ordinate when evaluating the distance - If the item is the same, the price will be similiar as well.
 
 
-```python
-def get_itemmap(items):
-    itemmap = {}
-    for x, y in itertools.combinations(items, 2):
-        if x.lower() == y.lower():
-            if x < y:
-                itemmap[x] = y
-            else:
-                itemmap[y] = x
-        elif x.lower().startswith(y.lower()) and x not in itemmap:
-            itemmap[x] = y
-        elif y.lower().startswith(x.lower()) and y not in itemmap:
-            itemmap[y] = x
-
-    # contract to lowest common prefix
-    for x in itemmap:
-        while itemmap[x] in itemmap:
-            itemmap[x] = itemmap[itemmap[x]]
-
-    return itemmap
-```
-
-
-```python
-def get_rest_share(gbd, rName, lb):
-    
-    share = [] # fraction of times rname appeared in past lb orders   
-    for i, row in gbd.iterrows():
-        wdf = gbd.loc[max(i-lb,0):i]
-        if row.rName == rName:
-            share.append(len(wdf.loc[wdf.rName == rName])/lb)
-        else:
-            share.append(0)
-    
-    return share
-
-def get_pop_benchmark(gbd, lb):
-    # get a list = 1/(# unique restaurants in past lb days)
-    bmark = [] # number of distinct restaurants in the past lb orders
-    for i, row in gbd.iterrows():
-        wdf = gbd.loc[max(i-lb,0):i]
-        bmark.append(round(1/wdf.rName.nunique(), 2))
-    
-    return bmark
-    
-def plot_rest_popularity(df, rName, lb, startd, endd, ax):
-
-    share_field = '{}_share'.format(rName)
-    gbd = df.groupby(['Date', 'rName'], as_index=False).agg({'Value': 'sum'})
-    gbd['Benchmark'] = get_pop_benchmark(gbd, lb)
-    gbd[share_field] = get_rest_share(gbd, rName, lb)
-    gbd.index = gbd.Date
-
-    daterange = pd.date_range(start=startd, end=endd)
-    rts = gbd[share_field].resample('D').max().fillna(0)
-    rts = rts.reindex(daterange)
-    bts = gbd.Benchmark.resample('D').min().fillna(method='pad')
-    bts = bts.reindex(daterange)
-
-    rts.plot(label='Restaurant Share', color='blue')
-    bts.plot(label='Benchmark', color='orange')
-    ax.set_ylim(0, 1.2*np.nanmax(rts))
-    ax.set_title('Order Share for {}'.format(rName), fontsize=15)
-    
-    plt.legend(loc='upper left', fontsize=13)
-```
-
-
-```python
-def tl_analysis(rname, df):
-    rdf = df.loc[df.rName == rname].copy()   
-    
-    # Summary Stats
-    total_orders = rdf.OrderNo.nunique()
-    total_value = round(rdf.Value.sum(), 2)
-    print('Consumption:')
-    print('  Total Number of Orders: ', total_orders)
-    print('  Total Value of Orders: ', total_value)
-    
-    gbo = rdf.groupby('OrderNo').Value.sum()
-    desc = gbo.describe()
-    print('Cost:')    
-    print('  Average Order Value: ', round(desc['mean'], 2))
-    print('  Median Order Value: ', round(desc['50%'], 2))
-    
-    start = rdf.iloc[0]['Date'].date()
-    end = rdf.iloc[-1]['Date'].date()
-    order_frequency = round(total_orders*30/(end - start).days, 2)
-    print('Order History:')
-    print('  First Order:', start)
-    print('  Last Order: ', end)
-    print('  Order Frequency: ', order_frequency, ' per month')   
-    print('\n')
-    
-    
-    # Graphs - Price Histogram, Popularity over time
-    fig, ax = plt.subplots(1, 2, figsize=(15, 5))
-     
-    plot_price_histogram(gbo, rname, ax[0])
-    plot_rest_popularity(df, rname, 10, start-rdt.timedelta(days=7), end+rdt.timedelta(days=7), ax[1])
-    
-    plt.show()
-    
-def item_analysis(rname, df, categorize_items=True):
-    rdf = df.loc[df.rName == rname].copy()   
-    total_orders = rdf.OrderNo.nunique()
-    
-    # Item-wise Analysis
-    itemmap = get_itemmap(set(rdf.Item))
-    rdf.loc[:, 'Item'] = rdf['Item'].apply(lambda r: itemmap[r] if r in itemmap else r )
-    
-    gbi = rdf.groupby('Item').agg({'Qty': 'sum', 'Value': 'sum', 'OrderNo': 'nunique'})
-    gbi['Avg Price'] = round(gbi.Value/gbi.Qty, 2)
-    gbi = gbi.sort_values(by='Avg Price')
-    
-    final_cols = ['Qty', 'Value', 'Avg Price']
-    if categorize_items:
-        final_cols.append('Item Type')
-        categories = get_item_categories(gbi.index, gbi['Avg Price'])
-        gbi['Item Type'] = gbi.index
-        gbi['Item Type'] = gbi['Item Type'].apply(lambda r: categories[r])
-    
-    gbi = gbi.sort_values(by='Qty', ascending=False)
-    
-    gbi['Order Percentage'] = round(gbi.OrderNo*100/total_orders, 5)
-    gbi = gbi.loc[gbi['Order Percentage']>10, final_cols]
-    
-    display(gbi)
-```
 
 ## Shake Shack
 
@@ -1399,26 +913,17 @@ Shake Shack is my favourite restaurant, and with 47 orders, the data supports th
 
 ### Summary Stats
 
-
-```python
-tl_analysis('Shake Shack', df)
-```
-
-    Consumption:
-      Total Number of Orders:  47
-      Total Value of Orders:  707.4
-    Cost:
-      Average Order Value:  15.05
-      Median Order Value:  17.45
-    Order History:
-      First Order: 2018-11-22
-      Last Order:  2020-12-21
-      Order Frequency:  1.86  per month
+__Consumption:__
+	Total Number of Orders:  47
+	Total Value of Orders:  707.4
+__Cost:__
+	Average Order Value:  15.05
+	Median Order Value:  17.45
+__Order History:__
+	First Order: 2018-11-22
+	Last Order:  2020-12-21
+	Order Frequency:  1.86  per month
     
-    
-    
-
-
     
 ![png](/images/2020-05-17/output_68_1.png)
     
@@ -1427,11 +932,6 @@ tl_analysis('Shake Shack', df)
 ### Item-wise Analysis
 
 Next up I looked at the distribution of the items.
-
-
-```python
-item_analysis('Shake Shack', df)
-```
 
 
 <div>
@@ -1529,25 +1029,18 @@ For old time's sake then, here are the Byron stats:
 
 
 
-```python
-tl_analysis('Byron', df)
-```
 
-    Consumption:
-      Total Number of Orders:  31
-      Total Value of Orders:  679.3
-    Cost:
-      Average Order Value:  21.91
-      Median Order Value:  20.65
-    Order History:
-      First Order: 2018-05-16
-      Last Order:  2019-11-27
-      Order Frequency:  1.66  per month
-    
-    
-    
-
-
+Consumption:
+	Total Number of Orders:  31
+	Total Value of Orders:  679.3
+Cost:
+	Average Order Value:  21.91
+	Median Order Value:  20.65
+Order History:
+	First Order: 2018-05-16
+	Last Order:  2019-11-27
+	Order Frequency:  1.66  per month
+   
     
 ![png](/images/2020-05-17/output_74_1.png)
     
@@ -1555,10 +1048,6 @@ tl_analysis('Byron', df)
 
 ### Item-wise Analysis
 
-
-```python
-item_analysis('Byron', df)
-```
 
 
 <div>
@@ -1662,20 +1151,17 @@ Ping Pong was the first restaurant I ever ate at in London. I've always enjoyed 
 ### Summary Stats
 
 
-```python
-tl_analysis('Ping Pong', df)
-```
 
-    Consumption:
-      Total Number of Orders:  12
-      Total Value of Orders:  238.25
-    Cost:
-      Average Order Value:  19.85
-      Median Order Value:  19.95
-    Order History:
-      First Order: 2019-01-26
-      Last Order:  2019-05-09
-      Order Frequency:  3.5  per month
+Consumption:
+	Total Number of Orders:  12
+	Total Value of Orders:  238.25
+Cost:
+	Average Order Value:  19.85
+	Median Order Value:  19.95
+Order History:
+	First Order: 2019-01-26
+	Last Order:  2019-05-09
+	Order Frequency:  3.5  per month
     
     
     
@@ -1687,11 +1173,6 @@ tl_analysis('Ping Pong', df)
 
 
 ### Item-wise Analysis
-
-
-```python
-item_analysis('Ping Pong', df, categorize_items=False)
-```
 
 
 <div>
@@ -1796,20 +1277,17 @@ Rusty Bike was my go-to place when I first moved to London. The food was too ext
 ### Summary Stats
 
 
-```python
-tl_analysis('Rusty Bike', df)
-```
 
-    Consumption:
-      Total Number of Orders:  21
-      Total Value of Orders:  346.1
-    Cost:
-      Average Order Value:  16.48
-      Median Order Value:  14.15
-    Order History:
-      First Order: 2018-07-27
-      Last Order:  2020-09-23
-      Order Frequency:  0.8  per month
+Consumption:
+	Total Number of Orders:  21
+	Total Value of Orders:  346.1
+Cost:
+	Average Order Value:  16.48
+	Median Order Value:  14.15
+Order History:
+	First Order: 2018-07-27
+	Last Order:  2020-09-23
+	Order Frequency:  0.8  per month
     
     
     
@@ -1821,11 +1299,6 @@ tl_analysis('Rusty Bike', df)
 
 
 ### Item-wise Analysis
-
-
-```python
-item_analysis('Rusty Bike', df)
-```
 
 
 <div>
@@ -1895,20 +1368,17 @@ I have eaten a lot of pizza in my life and The Pizza Room is something special.
 ### Summary Stats
 
 
-```python
-tl_analysis('The Pizza Room', df)
-```
 
-    Consumption:
-      Total Number of Orders:  18
-      Total Value of Orders:  419.54
-    Cost:
-      Average Order Value:  23.31
-      Median Order Value:  20.94
-    Order History:
-      First Order: 2018-08-10
-      Last Order:  2020-11-25
-      Order Frequency:  0.64  per month
+Consumption:
+	Total Number of Orders:  18
+	Total Value of Orders:  419.54
+Cost:
+	Average Order Value:  23.31
+	Median Order Value:  20.94
+Order History:
+	First Order: 2018-08-10
+	Last Order:  2020-11-25
+	Order Frequency:  0.64  per month
     
     
     
@@ -1922,9 +1392,6 @@ tl_analysis('The Pizza Room', df)
 ### Item-wise Analysis
 
 
-```python
-item_analysis('The Pizza Room', df)
-```
 
 
 <div>
@@ -2009,24 +1476,18 @@ Motu translates to "Fatty" or "Fatboy", and they have shipped me a lot of calori
 ### Summary Stats
 
 
-```python
-tl_analysis('Motu Indian Kitchen', df)
-```
 
-    Consumption:
-      Total Number of Orders:  32
-      Total Value of Orders:  565.75
-    Cost:
-      Average Order Value:  17.68
-      Median Order Value:  17.5
-    Order History:
-      First Order: 2018-12-08
-      Last Order:  2020-01-16
-      Order Frequency:  2.38  per month
+Consumption:
+	Total Number of Orders:  32
+	Total Value of Orders:  565.75
+Cost:
+	Average Order Value:  17.68
+	Median Order Value:  17.5
+Order History:
+	First Order: 2018-12-08
+	Last Order:  2020-01-16
+	Order Frequency:  2.38  per month  
     
-    
-    
-
 
     
 ![png](/images/2020-05-17/output_94_1.png)
@@ -2034,12 +1495,6 @@ tl_analysis('Motu Indian Kitchen', df)
 
 
 ### Item-wise Analysis
-
-
-```python
-item_analysis('Motu Indian Kitchen', df)
-```
-
 
 <div>
 <style scoped>
@@ -2114,20 +1569,17 @@ A lot of people love to shit on Dishoom. These are the fools that equate contrar
 ### Summary Stats
 
 
-```python
-tl_analysis('Dishoom', df)
-```
 
-    Consumption:
-      Total Number of Orders:  6
-      Total Value of Orders:  166.2
-    Cost:
-      Average Order Value:  27.7
-      Median Order Value:  21.9
-    Order History:
-      First Order: 2020-08-14
-      Last Order:  2020-12-19
-      Order Frequency:  1.42  per month
+Consumption:
+	Total Number of Orders:  6
+	Total Value of Orders:  166.2
+Cost:
+	Average Order Value:  27.7
+	Median Order Value:  21.9
+Order History:
+	First Order: 2020-08-14
+	Last Order:  2020-12-19
+	Order Frequency:  1.42  per month
     
     
     
@@ -2139,12 +1591,6 @@ tl_analysis('Dishoom', df)
 
 
 ### Item-wise Analysis
-
-
-```python
-item_analysis('Dishoom', df)
-```
-
 
 <div>
 <style scoped>
@@ -2259,7 +1705,3 @@ The following are some ideas for next steps:
 
 6. Look at the other players in the Deliveroo ecosystem: What about the riders? Would they get some benefit out of analysing their delivery data? Comparing their stats against other riders, or the population average? I don't know how much data Deliveroo shares with them, and in what format, but employers are typically incentivized to give their employees as little information as possible.
 
-
-```python
-
-```
