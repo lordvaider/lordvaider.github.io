@@ -778,7 +778,7 @@ display(pby)
 
 Also included a fancy Tableau graph of this data, since just showing the max value restaurant hides close runners up (As is the case with Byron and Shake Shack in 2019).
 
-![cusine_year_rest.PNG](attachment:b3b992ea-9697-4639-a9b6-2b18dc036ab1.PNG)
+![png](/images/2020-05-17/cusine_year_rest.PNG)
 
 ## Consumption by Restaurant
 
@@ -2105,7 +2105,7 @@ Eagle-eyed readers will notice that this table is not consistent with the order 
 
 Turns out Motu will let you add extra food to your Box for 1 order, and the Deliveroo email receipt lists it all under the Box for 1. I didn't account for this case while writing my email parser (And I'm not sure how I should, since the unit prices of the individual items aren't given). Hence the £18.07 is a an average of the vanilla, no-frills-attached Boxes for 1 and the fancier, with-extra-fixin's Boxes for 1, like the one below.
 
-![Motu_cornercase.png](attachment:e862508d-234e-4378-9086-fb4f3eb5d120.PNG)
+![png](/images/2020-05-17/Motu_cornercase.PNG)
 
 ## Dishoom
 
