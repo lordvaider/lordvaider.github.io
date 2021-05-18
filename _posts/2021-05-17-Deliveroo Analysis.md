@@ -218,14 +218,69 @@ Once we answer these in the aggregate, we can do a more in-depth analysis to see
 
 For starters, I simply looked at the annual data.
 
+<div width="40%">
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-| Year  | No_Orders | No_Items | Tot_Value | Avg Order Value |
-|-------|-----------|----------|-----------|-----------------|
-| 2018  | 88.0      | 182.0    | 1302.60   | 14.80           |
-| 2019  | 162.0     | 406.0    | 2681.01   | 16.55           |
-| 2020  | 66.0      | 150.0    | 1228.76   | 18.62           |
-| Total | 316.0     | 738.0    | 5212.37   | 16.49           |
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>No_Orders</th>
+      <th>No_Items</th>
+      <th>Tot_Value</th>
+      <th>Avg Order Value</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018</th>
+      <td>88.0</td>
+      <td>182.0</td>
+      <td>1302.60</td>
+      <td>14.80</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>162.0</td>
+      <td>406.0</td>
+      <td>2681.01</td>
+      <td>16.55</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>66.0</td>
+      <td>150.0</td>
+      <td>1228.76</td>
+      <td>18.62</td>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td>316.0</td>
+      <td>738.0</td>
+      <td>5212.37</td>
+      <td>16.49</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 Broadly speaking, not much change in consumption frequency from 2018 to 2019 (Given that 2018 was half a year worth of data). On average, I ordered in 3 times a week.
@@ -356,16 +411,10 @@ The next logical prism to split the data is Cuisine. For starters, what is the d
 <table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Cuisine</th>
       <th>OrderNo</th>
       <th>Value</th>
       <th>Value Per Order</th>
-    </tr>
-    <tr>
-      <th>Cuisine</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -455,7 +504,7 @@ One simple question to ask in this regard is, what is the favourite restaurant f
 
 
 
-<div>
+<div width="50%>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -476,12 +525,6 @@ One simple question to ask in this regard is, what is the favourite restaurant f
       <th>2018</th>
       <th>2019</th>
       <th>2020</th>
-    </tr>
-    <tr>
-      <th>Cuisine</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -554,7 +597,7 @@ Next, I broke down the data by restaurant. Here again, I looked at the overall t
 
 
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -571,16 +614,10 @@ Next, I broke down the data by restaurant. Here again, I looked at the overall t
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>rName</th>
       <th>OrderNo</th>
       <th>Value</th>
       <th>Avg Value</th>
-    </tr>
-    <tr>
-      <th>rName</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -741,6 +778,20 @@ Another approach would be to go full Physics and define food units in calories, 
 In the absence of clear answers, I decided to just calculate the 2 simplest metrics (Average Order Value and Average Item Value), and see which one made more sense.
 
 
+<div width="20%">
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 <table border="1" class="dataframe">
   <thead>
@@ -792,12 +843,26 @@ In the absence of clear answers, I decided to just calculate the 2 simplest metr
     </tr>
   </tbody>
 </table>
-
+</div>
 
 Off the bat, we can see that Item Value as a metric is giving nonsensical results - The top 3 items have Pizza restaurants (As predicted) and Motu Indian Kitchen, which has the massive "Box for 1" as a single item, but is hardly an expensive/high class restaurant. The other entries on the list are equally nonsensical (The Athenian? Rusty Bike?? Cookies & Cream???)
 
 
 
+<div width="20%">
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 
 <table border="1" class="dataframe">
   <thead>
@@ -849,7 +914,7 @@ Off the bat, we can see that Item Value as a metric is giving nonsensical result
     </tr>
   </tbody>
 </table>
-
+</div>
 
 This seems more in line with the truth, but again there is a very evident bias - All of Dishoom, Manjal and PizzaExpress have instances of large (> £60) orders, which skew their average order value upwards. 
 
@@ -948,7 +1013,7 @@ Order Frequency:  1.86  per month
 Next up I looked at the distribution of the items.
 
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1068,7 +1133,7 @@ Order Frequency:  1.66  per month
 
 ### Item-wise Analysis
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1191,7 +1256,7 @@ Order Frequency:  3.5  per month
 ### Item-wise Analysis
 
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1315,7 +1380,7 @@ Order Frequency:  0.8  per month
 ### Item-wise Analysis
 
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1403,7 +1468,7 @@ Order Frequency:  0.64  per month
 ### Item-wise Analysis
 
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1507,7 +1572,7 @@ Order Frequency:  2.38  per month
 
 ### Item-wise Analysis
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1600,7 +1665,7 @@ Order Frequency:  1.42  per month
 
 ### Item-wise Analysis
 
-<div>
+<div width="50%">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
