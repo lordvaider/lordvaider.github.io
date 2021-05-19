@@ -1,6 +1,6 @@
 # Deliveroo Data Analysis II
 
-_This is Part II of a 3 part series. Click here for [Part I]_
+_This is Part II of a 3 part series. Click here for [Part I](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis.html)_
 
 In this section, I will do some broad, first-order analysis. No matter how we slice the data (By time periods, cuisine or some other pattern), the first questions that spring to mind are always: 
 
@@ -8,6 +8,8 @@ In this section, I will do some broad, first-order analysis. No matter how we sl
 2. How much money did I spend on such orders? 
 
 Once we answer these in the aggregate, we can do a more in-depth analysis to see how these quantities trend over time, and do a comparative analysis to see how the aggregate values for different slices stack up against each other.
+
+__Table of Contents:__
 
 * TOC
 {:toc}
@@ -584,7 +586,7 @@ In the absence of clear answers, I decided to just calculate the 2 simplest metr
     }
 </style>
 
-<table border="1" class="dataframe" style="width: 20%;">
+<table border="1" class="dataframe" style="width: 30%;">
   <thead>
     <tr style="text-align: right;">
       <th>rName</th>
@@ -655,7 +657,7 @@ Off the bat, we can see that Item Value as a metric is giving nonsensical result
     }
 </style>
 
-<table border="1" class="dataframe" style="width: 20%;">
+<table border="1" class="dataframe" style="width: 30%;">
   <thead>
     <tr style="text-align: right;">
       <th>rName</th>
@@ -711,4 +713,4 @@ This seems more in line with the truth, but again there is a very evident bias -
 
 Another point in favour of the order metric - This list features the fancier places like Ping Pong, Busaba, and Byron higher up than the first list.
 
-In order to see the restaurant-wise anallysis analysis, check out [Section III]!
+In order to see the restaurant-wise anallysis analysis, check out [Section III](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis-III.html)!

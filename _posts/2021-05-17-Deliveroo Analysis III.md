@@ -1,8 +1,10 @@
 # Deliveroo Data Analysis III
 
-_This is Part III of a 3 part series. Click here for [Part I] and [Part II]_
+_This is Part III of a 3 part series. Click here for [Part I](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis.html) and [Part II](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis-II.html)_
 
 In this section, I want to break down my orders from some of my favourite restaurants and see which items I ordered most, and provide some commentary. I wrap up with some directions for future work.
+
+__Table of Contents:__
 
 * TOC
 {:toc}
