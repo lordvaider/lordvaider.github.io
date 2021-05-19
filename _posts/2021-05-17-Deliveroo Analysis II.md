@@ -33,18 +33,11 @@ For starters, I simply looked at the annual data.
 <table border="1" class="dataframe" style="width: 40%;">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>Year</th>
       <th>No_Orders</th>
       <th>No_Items</th>
       <th>Tot_Value</th>
       <th>Avg Order Value</th>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
