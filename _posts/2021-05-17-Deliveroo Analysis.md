@@ -232,7 +232,7 @@ For starters, I simply looked at the annual data.
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 40%;">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -394,7 +394,7 @@ Putting together all the knowledge from the previous section, I was in a positio
 The next logical prism to split the data is Cuisine. For starters, what is the distribution of cuisine preference?
 
 
-<div width="50%">
+<div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -518,7 +518,7 @@ One simple question to ask in this regard is, what is the favourite restaurant f
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>Year</th>
@@ -611,7 +611,7 @@ Next, I broke down the data by restaurant. Here again, I looked at the overall t
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>rName</th>
@@ -793,7 +793,7 @@ In the absence of clear answers, I decided to just calculate the 2 simplest metr
     }
 </style>
 
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 20%;">
   <thead>
     <tr style="text-align: right;">
       <th>rName</th>
@@ -864,7 +864,7 @@ Off the bat, we can see that Item Value as a metric is giving nonsensical result
     }
 </style>
 
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 20%;">
   <thead>
     <tr style="text-align: right;">
       <th>rName</th>
@@ -1027,7 +1027,7 @@ Next up I looked at the distribution of the items.
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: left;">
       <th>Item</th>
@@ -1147,7 +1147,7 @@ Order Frequency:  1.66  per month
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>Item</th>
@@ -1270,7 +1270,7 @@ Order Frequency:  3.5  per month
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>Item</th>
@@ -1394,7 +1394,7 @@ Order Frequency:  0.8  per month
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>Item</th>
@@ -1460,6 +1460,7 @@ Last Order:  2020-11-25
 
 Order Frequency:  0.64  per month
  
+### Summary Graphs    
    
 ![png](/images/2020-05-17/output_89_1.png)
     
@@ -1482,7 +1483,7 @@ Order Frequency:  0.64  per month
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>Item</th>
@@ -1542,8 +1543,6 @@ Motu translates to "Fatty" or "Fatboy", and they have shipped me a lot of calori
 
 ### Summary Stats
 
-
-
 __Consumption:__
 
 Total Number of Orders:  32
@@ -1565,7 +1564,7 @@ Last Order:  2020-01-16
 Order Frequency:  2.38  per month  
     
 
-    
+### Summary Graphs        
 ![png](/images/2020-05-17/output_94_1.png)
     
 
@@ -1586,7 +1585,7 @@ Order Frequency:  2.38  per month
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>Item</th>
@@ -1679,7 +1678,7 @@ Order Frequency:  1.42  per month
         text-align: right;
     }
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width: 50%;">
   <thead>
     <tr style="text-align: right;">
       <th>Item</th>
