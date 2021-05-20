@@ -44,10 +44,12 @@ As a first step, I wrote some code to parse the email receipts that I get from D
  2. __The format of the email changes over time:__ I was expecting this to be an issue. As a simple example, the top line of the Deliveroo email reads: "{Restaurant Name} has your order!". However, before May 2019, it used to read "{Restaurant Name} has __accepted__ your order!". 
     
     The first solution my brain suggested was to put a branch in my code to check whether the order was received before/after 1 May 2019, and parse the restaurant name accordingly. Of course, this solution was terribly unsatisfactory because:
-     - I didn't know exactly when the format had changed, I just knew that it had changed at some point between two of my orders. Hence, there was a chance that if someone else ran this code for their orders, it might parse them incorrectly.
-     - More seriously, the format could change again at some point, and then I'd have to add yet another branch in my code, increasing the length and complexity of my codebase.
-
-    I shrugged off these concerns and just coded it up anyway, since I wanted to finish the data scraping ASAP and move on to the __ANALYSIS!__. However the code didn't work as expected since before November 2018, the top line used to read "{Restaurant Name} has __received__ your order!" 
+	
+	- I didn't know exactly when the format had changed, I just knew that it had changed at some point between two of my orders. Hence, there was a chance that if someone else ran this code for their orders, it might parse them incorrectly.
+	- More seriously, the format could change again at some point, and then I'd have to add yet another branch in my code, increasing the length and complexity of my codebase.
+	
+	
+	I shrugged off these concerns and just coded it up anyway, since I wanted to finish the data scraping ASAP and move on to the __ANALYSIS!__. However the code didn't work as expected since before November 2018, the top line used to read "{Restaurant Name} has __received__ your order!" 
     
     There was no way I was putting 3 branches in my code, and so I decided to respect the problem and actually think about it for 5 minutes. At 4 minutes and 20 seconds, I realized I could leverage some regular expression magic to vastly simplify the code. 
     
@@ -56,7 +58,8 @@ As a first step, I wrote some code to parse the email receipts that I get from D
     - {Restaurant Name} has accepted your order!
     - {Restaurant Name} has received your order!
     
-    However, as I later realised, I could actually push the branching into the regexp itself, and use just one: "{Restaurant Name} has (\|accepted\|received) your order!" This change avoided blowing up the size of the code and also exorcised the date-based check.       
+    
+	However, as I later realised, I could actually push the branching into the regexp itself, and use just one: "{Restaurant Name} has (\|accepted\|received) your order!" This change avoided blowing up the size of the code and also exorcised the date-based check.       
 
  3. __The price convention seemed to change randomly:__ This was a subtle issue, and I actually noticed it when I was deep in the __ANALYSIS!__ stage. I was plotting the distribution of order sizes, and found that I had spent £150 on a single order at Dishoom, which I did not remember. 
  
@@ -69,17 +72,17 @@ As a first step, I wrote some code to parse the email receipts that I get from D
      
      Eventually though, this turned out to be wasted effort. The two different price conventions were an artefact introduced by some extra display logic in the HTML code, and the text part of the email had the right values all along. However, it's still good to have the bottom line numbers in order to analyse things like how delivery fees etc changed over time/How much I pay in extra charges etc. so this was't a _total_ waste.
 
-I have shared the end result of these efforts in git repo here, in case any of you are interested in fetching your own Deliveroo data.
+I have shared the end result of these efforts in git repo [here](https://github.com/lordvaider/DataDeliveroo), in case any of you are interested in fetching your own Deliveroo data.
 
-Eventually, I was able to get my data extraction working and got the raw data corresponding to (almost) all orders in a neat .csv file. Just scrolling through this file, I got a feeling of power. <s>Finally it was __ANALYSIS!__ time!</s> Finally, it was time to clean my data and get it into the right format!
+Eventually, I was able to get my data extraction working and got the raw data corresponding to (almost) all orders in a neat .csv file. Just scrolling through this file, I got a feeling of power. <s>Finally it was <b>ANALYSIS!</b> time!</s> Finally, it was time to clean my data and get it into the right format!
 
 ## Data Formatting + Cleaning
 
-In order to do useful ANALYSIS! on the data, it first needed some cleaning and formatting: 
+In order to do useful __ANALYSIS!__ on the data, it first needed some cleaning and formatting: 
 1. __Datatype Conversions:__ Need to convert the values of the "Date" column into datetimes.
 
 
-2. __Add Inferred Columns__: Enrich the dataset with some more columns that will be required in the course of the analysis such as Value, and OrderNo (All items ordered at the same time share an order no.)
+2. __Add Inferred Columns__: Enrich the dataset with some more columns that will be required in the course of the analysis such as Value, and OrderNo - All items ordered at the same time share an order no.
 
 
 3. __Remove outliers:__ Remove rows with price = 0. Typically, such rows correspond to freebies such as ketchup/mustard packets. While it may be interesting to analyse such rows separately, I will exclude them for now.

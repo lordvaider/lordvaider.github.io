@@ -14,9 +14,9 @@ __Table of Contents:__
 
 What kind of information are we interested in when looking at a particular restaurant?
 
-1. Summary stats: Total number of orders? Total spend on the restaurant? How expensive is the restaurant? How often do I order from the restaurant?
+1. __Summary stats:__ Total number of orders? Total spend on the restaurant? How expensive is the restaurant? How often do I order from the restaurant?
 
-2. I'd like to see a breakdown of the summary stats over time, since averages don't always tell the whole story. There are two graphs here: 
+2. __Dynamic Breakdown:__ I'd like to see a breakdown of the summary stats over time, since averages don't always tell the whole story. There are two graphs here: 
     - __Histogram of order values:__ This gives a fair idea of what ordering behaviour was for a particular restaurant - Did I always have the same standard order? Did I order from this restaurant when entertaining guests? 
     - __Chart of order frequency:__ Each time I ordered from that restaurant, I plotted it's order share in the last 10 orders. This was benchmarked against 1/(Number of distinct restaurants in last 10 orders) - The logic being that if all restaurants were equally popular, the value of order frequency would be the benchmark value.
 
@@ -33,16 +33,15 @@ As discussed before, it's handy to have some way to categorize restaurant items 
 
 Probably the most accurate way to do item categorization is to somehow scrape the Deliveroo menus for each restaurant, and look up which category they fall into. I do not have the coding skills required to do this, and even if I did, it probably wouldn't be as straightforward (Item names change over time, as we will discuss below). 
 
-If I can't get the data from an external source, I have to look within. The only information I have per item is it's name and it's price (Well, I also know which other items typically accompany it, but it's much harder to extract meaningful inferences from that kind of data, particularly when your dataset is so small). I don't know how to extract the category data from the item name, and so I decided to go with a simple binary classification of items per restaurant into Mains or Sides, based on their price. What this boils down to is applying K-Means clustering to a 1-dimensional dataset (The list of prices in this case). I don't know if K-Means is ideal for such situations, or if there are simpler and more direct methods one can leverage, but it was available in SKlearn library and seemed to give good enough results.
+If I can't get the data from an external source, I have to look within. The only information I have per item is it's name and it's price [^1]. I don't know how to extract the category data from the item name, and so I decided to go with a simple binary classification of items per restaurant into Mains or Sides, based on their price. What this boils down to is applying K-Means clustering to a 1-dimensional dataset (The list of prices in this case). I don't know if K-Means is ideal for such situations, or if there are simpler and more direct methods one can leverage, but it was available in SKlearn library and seemed to give good enough results.
 
 For certain restaurants this kind of binary categorization doesn't make sense - For eg. Ping Pong has a system of small plates, so all their items are Mains (or Sides). In such a case, forcing a divide into 2 categories creates an artificial distinction. There are ways to determine the correct number of clusters for a dataset, but I don't have a lot of expertise in these matters and hence decided to just take this as an input from the user.
 
-
-
-
 ## Item Name Changes - Prefix Clustering
 
-When analysing the distribution of items per restaurant, I found that items names will sometimes change over time. Example: Shake Shack will sometimes refer to it's "Chipotle Cheddar Chick'n Burger" as just "Chipotle Cheddar Chick'n", and the name of Ping Pong's "Potato and Edamame Cake __(V)__ (2pcs)" changed one day to "Potato and Edamame Cake __(v)__ (2pcs)". These name changes lead to some nasty surprises; Can you imagine my horror when I saw "Garden Fresh Golden Dumplings" topping the Ping Pong list instead of my beloved cakes of potato and edamame?!
+When analysing the distribution of items per restaurant, I found that items names will sometimes change over time. Example: Shake Shack will sometimes refer to it's "Chipotle Cheddar Chick'n Burger" as just "Chipotle Cheddar Chick'n", and the name of Ping Pong's "Potato and Edamame Cake __(V)__ (2pcs)" changed one day to "Potato and Edamame Cake __(v)__ (2pcs)". 
+
+Name changes like these can lead to some nasty surprises; Can you imagine my horror when I saw "Garden Fresh Golden Dumplings" topping the Ping Pong list instead of my beloved cakes of potato and edamame?!
 
 This is similar to the issue I faced earlier in the analysis with restaurant names, but solving this with manual relabelling is far more tedious, since the universe of items is much larger. 
 
@@ -179,7 +178,7 @@ As is evident, I am a huge fan of the cheesy fries, and an even bigger fan of th
 
 The K-Means clusterer has categorized the Chocolate Shake as a Main based on the £5.95 price point, but given that this is __Shake__ Shack we're talking about, it's probably OK.
 
-My relation with their burgers has evolved over time; At first I could only eat the Shroom burger, which kinda sucked. I was hugely excited about the launch of their fried chicken sandwich, which did not disappoint (At first). Over time though, it started tasting super dry and chewy, and whenever they came out with a special edition chicken burger (Like the Chipotle Cheddar Chick'n, or the Black Truffle Chick'n) I'd immediately switch loyalties. I'm still not sure why the special edition burgers tasted so much better; My theory about the Black Truffle Chick'n is that it was made of thigh meat, which meant a juicier and more tender patty. While the data doesn't reflect this, recently life came full circle and I switched back to the Shroom burger.
+My relation with their burgers has evolved over time; At first I could only eat the Shroom burger, which kinda sucked. I was hugely excited about the launch of their fried chicken sandwich, which did not disappoint (At first). Over time though, it started tasting super dry and chewy, and whenever they came out with a special edition chicken burger (Like the Chipotle Cheddar Chick'n, or the Black Truffle Chick'n) I'd immediately switch loyalties. I'm still not sure why the special edition burgers tasted so much better; My theory about the Black Truffle Chick'n is that it was made of thigh meat, which meant a juicier and more tender patty. While the data doesn't reflect this, recently life came full circle for me when I switched back to the Shroom burger.
 
 # Byron
 
@@ -301,7 +300,9 @@ Cheese Sauce at the top of the pile again! Dunking their large, messy beer-batte
 
 On the burgers, I actually really like their classic grilled chicken burger, both in terms of the flavour, and the health angle - It was the leanest burger among all the burgers in this analysis. The V-Rex was a special edition vegetarian burger, that is probably the closest I've seen UK veg burgers come to the veg burgers we have in India (It had a crunchy deep-fried patty, spicy mayo and and a slice of onion in it).
 
-Speaking of the V-Rex reminded me of one my biggest pet peeves - Why isn't anyone making veg burgers out of potatos? If there are any English restaurant owners reading this, ditch the halloumi/beans/jackfruit/Beyond Meat patties, and use potatos instead!! I don't know why no one has come up with this yet, but a smattering of vegetables in a matrix of mashed potatos, breaded and deep-fryed, results in the tastiest vegetarian burgers, and if you put this on your menu, you will win a lot of business and goodwill from the large and rapidly growing Indian immigrant community.
+Speaking of the V-Rex reminded me of one my biggest pet peeves - Why isn't anyone making veg burgers out of potatos? If there are any English restaurant owners reading this, ditch the halloumi/beans/jackfruit/Beyond Meat patties, and use potatos instead!! I don't know why no one has come up with this yet, but a smattering of vegetables in a matrix of mashed potatos, breaded and deep-fryed, results in the tastiest vegetarian burgers. Put this on your menu and you will win a lot of business and goodwill from the large (And rapidly growing) Indian immigrant community. (Also, people with vegetarian girlfriends!)
+
+![png](/images/2020-05-17/tastyburger.PNG)*Jules, on realizing he can have his burger and eat it too*
 
 # Ping Pong
 
@@ -430,7 +431,7 @@ The only thing that irritates me about this table is that I paid £9.30 for two 
 
 # Rusty Bike
 
-Rusty Bike was my go-to place when I first moved to London. The food was too extravagant/unhealthy, reasonably priced and quite tasty.
+Rusty Bike was my go-to place when I first moved to London. Unlike most delivery options, the food was not extravagant/unhealthy, reasonably priced and quite tasty.
 
 ## Summary Stats
 
@@ -514,7 +515,7 @@ Order Frequency:  0.8  per month
 </div>
 
 
-As is evident from the price histogram, Rusty Bike orders followed a standard template - Green Curry, Steamed Rice, and on occassion, spring rolls. It is a bit odd that the numbers don't line up better - I'd have expected the Green Curry and Rice orders to be almost equal. On reviewing the raw orders data, I found that initially (For the first six orders), Rusty Bike used to include a default steamed rice with the green curry. They later decoupled them into separate items. One result of this is that the Average Price of the green curry in the table above is inflated - The actual price of the green curry is about £7.5.
+As is evident from the price histogram, Rusty Bike orders followed a standard template - Green Curry, Steamed Rice, and on occassion, spring rolls. It is a bit odd that the numbers don't line up better - I'd expected the Green Curry and Rice orders to be almost equal. On reviewing the raw orders data, I found that initially (For the first six orders), Rusty Bike used to include a default steamed rice with the green curry. They later decoupled them into separate items. One result of this is that the Average Price of the green curry in the table above is inflated - The actual price of the green curry is about £7.5.
 
 # The Pizza Room
 
@@ -612,8 +613,8 @@ Order Frequency:  0.64  per month
 
 Wherever I go, the Quattro Formaggi or 4 Cheese pizza has been my go-to pizza order for a while. What makes the Pizza Room Quattro Formaggi special is:
 
-1. __Tomato__ __Sauce:__ Nowhere else have I seen Pizza Room levels of clarity on this topic. They are upfront about the fact that the default option is no tomato sauce (Traditionally, the QF is a 'White Pizza'). However, if you'd like tomato sauce, they will add it on for a fee. I really like the fact that they charge me a nominal amount for the sauce and hence eliminate all uncertainty - At other restaurants I have to add a delivery note saying "If you don't typically add tomato sauce to the Quattro Formaggi pizza, please can you do so in this case?" and then pace nervously till the pizza gets delivered.
 
+1. __Tomato__ __Sauce:__ Nowhere else have I seen Pizza Room levels of clarity on this topic. They are upfront about the fact that the default option is no tomato sauce (Traditionally, the QF is a 'White Pizza'). However, if you'd like tomato sauce, they will add it on for a fee. I really like the fact that they charge me a nominal amount for the sauce and hence eliminate the uncertainty - At other pizzerias, I add an awkward delivery note saying "If you don't typically add tomato sauce to the Quattro Formaggi pizza, please can you do so in this case?" and then pace nervously till the pizza gets delivered.
 2. __Add-Ons:__ Definitely add green chillies to your QF pizza for a zingy complement to all the cheese.
 
 3. __Generous deposits of Gorgonzola:__ I've no idea why, but a lot of restaurants scrimp on the blue cheese. The Pizza Room isn't one of them.
@@ -705,7 +706,7 @@ Order Frequency:  2.38  per month
 </div>
 
 
-On paper, the Box for 1 had everything I could want from an Indian meal: Paneer, Dal Tadka, garlic naan and papads. The quality was not amazing, but it wasn't too bad, and beggars can't be choosers/
+On paper, the Box for 1 had everything I could want from an Indian meal: Paneer, Dal Tadka, garlic naan and papads. The quality was not amazing, but it wasn't too bad, and beggars can't be choosers.
 
 Eagle-eyed readers will notice that this table is not consistent with the order value histogram above - The Box for 1 costs £18.07, but there are no orders with that price. Maybe the price increased over time? But in that case you'd probably have a bimodal distribution with two peaks. What gives? In order to crack this one, I had to go back all the way to the email receipts.
 
@@ -853,3 +854,4 @@ The following are some ideas for next steps:
 
 6. Look at the other players in the Deliveroo ecosystem: What about the riders? Would they get some benefit out of analysing their delivery data? Comparing their stats against other riders, or the population average? I don't know how much data Deliveroo shares with them, and in what format, but employers are typically incentivized to give their employees as little information as possible.
 
+[^1]: Well, I also know which other items typically accompany it, so one could in theory say that since the item 1, item2 and item3 occur together, it's a mains+side+drink combo. However, it's MUCH harder to extract meaningful inferences in this way, and almost impossible when your dataset is so small!

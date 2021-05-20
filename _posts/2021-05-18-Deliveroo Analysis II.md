@@ -2,7 +2,7 @@
 
 _This is Part II of a 3 part series. Click here for [Part I](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis.html)_
 
-In this section, I will do some broad, first-order analysis. No matter how we slice the data (By time periods, cuisine or some other pattern), the first questions that spring to mind are always: 
+In this section, I will do some broad, first-order analysis. No matter how we slice the data (By time-periods, cuisine or some other pattern), the first questions that spring to mind are always: 
 
 1. How many orders follow this pattern? 
 2. How much money did I spend on such orders? 
@@ -87,15 +87,17 @@ Next, I decided to plot a graph of my consumption over the course of each year.
 
 # Sidebar: Why are Graphs so painful? 
 
-Having found the total annual consumption, I wanted to plot out the consumption trends to see how they vary over time. This turned out to be more complicated than one would expect, for a variety of reasons. Since this is supposed to be a report of my journey, I thought I'd spend some time fleshing out these complications instead of jumping straight to the finsihed product.
+Having found the total annual consumption, I wanted to plot out the consumption trends to see how they vary over time. This turned out to be more complicated than one would expect, for a variety of reasons. Since this is supposed to be a report of my journey, I thought I'd spend some time fleshing out these complications instead of jumping straight to the results.
 
 ## Subjective Problems
 Part of the reason I found plotting graphs difficult was because **I** was plotting them, and I happen to have quite a few mental and emotional hangups. The ones that are relevant here are:
 
 ### My Ingratitude and Immaturity
-I have incredibly powerful magical abilities that I take for granted. To be fair, this is a shortcoming I share with most of humanity - We take our visualization and graphical processing abilities for granted, and hence underestimate how hard it is to convey visual information to non-visual entities. As an illustrative example look at the scene on your desk. Imagine having to answer a series of simple questions about this scene - Is the lamp to the right of the screen or the left? What is the color of the pen lying closest to the power outlet? Is the stack of papers thicker than the notebook? You'd most likely get a perfect score. Now imagine having to describe the scene to a friend over the phone in enough detail that they can get a perfect score on a similar quiz. Sounds daunting, doesn't it? (By the way, this is a rigorous proof of the folklore theorem: "A picture is worth a thousand words").
+I have incredibly powerful magical abilities that I take for granted. To be fair, this is a shortcoming I share with most of humanity - We take our visualization and graphical processing abilities for granted, and hence underestimate how hard it is to convey visual information to non-visual entities. 
 
-Something similar happens when we try to plot graphs on a computer. We are communicating visual information over a text channel, and hence we need to specify "obvious" things that our brain takes for granted - A simple example of is this [Before](https://stackoverflow.com/questions/9603230/how-to-use-matplotlib-tight-layout-with-figure) picture of fig.tight_layout() - A human would _know_ to position the graphs such that the labels don't overlap, but matplotlib needs you to say, "Oh and by the way, please can I have a tight_layout for that fig?!"
+As an illustrative example look at the scene on your desk. Imagine having to answer a series of simple questions about this scene - Is the lamp to the right of the screen or the left? What is the color of the pen lying closest to the power outlet? Is the stack of papers thicker than the notebook? You'd most likely get a perfect score. Now imagine having to describe the scene to a friend over the phone in enough detail that they can get a perfect score on a similar quiz. Sounds daunting, doesn't it? (By the way, this is a rigorous proof of the folklore theorem: "A picture is worth a thousand words").
+
+Something similar happens when we try to plot graphs on a computer. We are communicating visual information over a text channel, and hence we need to specify "obvious" things that our brain takes for granted - A simple example of is this [Before](https://stackoverflow.com/questions/9603230/how-to-use-matplotlib-tight-layout-with-figure) picture of fig.tight_layout() - A human _knows_ to position the graphs such that the labels don't overlap, but matplotlib needs you to say, "Oh and by the way, please can I have a tight_layout for that fig?!"
 
 Being slammed with unexpected bureaucracy in this way felt unfair and frustrating, and I started throwing tantrums - "Stupid matplotlib developers! Why is something as simple as plotting a graph so complicated?!" The answer, of course, is that plotting a graph isn't that simple - I just felt that way because I have some extremely advanced visual processing machinery sitting between my ears. Eventually I understood that if I wanted graphs, I had to suck it up, be a big boy, and give the machine what it needs.
 
@@ -297,7 +299,7 @@ One simple question to ask in this regard is, what is the favourite restaurant f
 
 
 
-<div width="50%>
+<div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -713,4 +715,4 @@ This seems more in line with the truth, but again there is a very evident bias -
 
 Another point in favour of the order metric - This list features the fancier places like Ping Pong, Busaba, and Byron higher up than the first list.
 
-In order to see the restaurant-wise anallysis analysis, check out [Section III](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis-III.html)!
+In order to see the restaurant-wise analysis analysis, check out [Section III](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis-III.html)!
