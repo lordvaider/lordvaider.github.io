@@ -300,9 +300,13 @@ Cheese Sauce at the top of the pile again! Dunking their large, messy beer-batte
 
 On the burgers, I actually really like their classic grilled chicken burger, both in terms of the flavour, and the health angle - It was the leanest burger among all the burgers in this analysis. The V-Rex was a special edition vegetarian burger, that is probably the closest I've seen UK veg burgers come to the veg burgers we have in India (It had a crunchy deep-fried patty, spicy mayo and and a slice of onion in it).
 
-Speaking of the V-Rex reminded me of one my biggest pet peeves - Why isn't anyone making veg burgers out of potatos? If there are any English restaurant owners reading this, ditch the halloumi/beans/jackfruit/Beyond Meat patties, and use potatos instead!! I don't know why no one has come up with this yet, but a smattering of vegetables in a matrix of mashed potatos, breaded and deep-fryed, results in the tastiest vegetarian burgers. Put this on your menu and you will win a lot of business and goodwill from the large (And rapidly growing) Indian immigrant community. (Also, people with vegetarian girlfriends!)
+Speaking of the V-Rex reminded me of one my biggest pet peeves - Why isn't anyone making veg burgers out of potatos? If there are any English restaurant owners reading this, ditch the halloumi/beans/jackfruit/Beyond Meat patties, and use potatos instead!! I don't know why no one has come up with this yet, but a smattering of vegetables in a matrix of mashed potatos, breaded and deep-fryed, results in the tastiest vegetarian burgers. Put this on your menu and you will win a lot of business and goodwill from the large (And rapidly growing) Indian immigrant community. 
 
-![png](/images/2020-05-17/tastyburger.png)*Jules eating a McAloo Tikki*
+![png](/images/2020-05-17/tastyburger.png)
+
+<p style="text-align: center;">
+<i>Also, people whose girlfriends are vegetarians, which pretty much makes them a vegetarian.</i>
+</p>
 
 # Ping Pong
 
