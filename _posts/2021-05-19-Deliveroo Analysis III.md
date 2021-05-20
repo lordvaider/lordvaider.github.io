@@ -619,6 +619,7 @@ Wherever I go, the Quattro Formaggi or 4 Cheese pizza has been my go-to pizza or
 
 
 1. __Tomato__ __Sauce:__ Nowhere else have I seen Pizza Room levels of clarity on this topic. They are upfront about the fact that the default option is no tomato sauce (Traditionally, the QF is a 'White Pizza'). However, if you'd like tomato sauce, they will add it on for a fee. I really like the fact that they charge me a nominal amount for the sauce and hence eliminate the uncertainty - At other pizzerias, I add an awkward delivery note saying "If you don't typically add tomato sauce to the Quattro Formaggi pizza, please can you do so in this case?" and then pace nervously till the pizza gets delivered.
+
 2. __Add-Ons:__ Definitely add green chillies to your QF pizza for a zingy complement to all the cheese.
 
 3. __Generous deposits of Gorgonzola:__ I've no idea why, but a lot of restaurants scrimp on the blue cheese. The Pizza Room isn't one of them.
