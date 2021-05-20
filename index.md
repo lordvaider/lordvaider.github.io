@@ -1,3 +1,1 @@
-Adventures of a Wannabe Datadude
-
-And you can include links, like this [link to fast.ai](https://www.fast.ai). Posts will appear after this file. 
+One dude's journey to understand his own data
