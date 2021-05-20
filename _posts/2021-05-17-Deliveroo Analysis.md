@@ -206,4 +206,4 @@ Once the data had been extracted, cleaned, formatted and enriched with external 
 </table>
 </div>
 
-In order to see the top level analysis, check out [Section II](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis-II.html)!
+In order to see the top level analysis, check out [Section II](https://lordvaider.github.io/2021/05/18/Deliveroo-Analysis-II.html)!

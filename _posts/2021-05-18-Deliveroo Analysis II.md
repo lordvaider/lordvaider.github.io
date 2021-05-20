@@ -715,4 +715,4 @@ This seems more in line with the truth, but again there is a very evident bias -
 
 Another point in favour of the order metric - This list features the fancier places like Ping Pong, Busaba, and Byron higher up than the first list.
 
-In order to see the restaurant-wise analysis analysis, check out [Section III](https://lordvaider.github.io/2021/05/17/Deliveroo-Analysis-III.html)!
+In order to see the restaurant-wise analysis analysis, check out [Section III](https://lordvaider.github.io/2021/05/19/Deliveroo-Analysis-III.html)!
