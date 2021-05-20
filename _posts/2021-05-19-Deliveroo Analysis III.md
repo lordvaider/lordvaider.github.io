@@ -305,7 +305,7 @@ Speaking of the V-Rex reminded me of one my biggest pet peeves - Why isn't anyon
 ![png](/images/2020-05-17/tastyburger.png)
 
 <p style="text-align: center;">
-<i>Also, people whose girlfriends are vegetarians, which pretty much makes them a vegetarian.</i>
+<i>Also, people whose girlfriends are vegetarians, which pretty much makes them vegetarians.</i>
 </p>
 
 # Ping Pong
