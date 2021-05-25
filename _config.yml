@@ -43,3 +43,5 @@ kramdown:
   auto_ids: true
   hard_wrap: false
   syntax_highlighter: rouge
+
+staticman_url: https://staticman-lordvaiderio.herokuapp.com/v2/entry/lordvaider/lordvaider.github.io/master/comments
