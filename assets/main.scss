@@ -5,6 +5,7 @@
 $content-width: 80%;
 
 @import "{{ site.theme }}";
+@import "comment-styles";
 
 .post img {
         display: block;
