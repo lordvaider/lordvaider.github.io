@@ -24,7 +24,7 @@ Despite having an advanced degree in Computer Science and working as a sort-of-s
 
 4. __Other tools:__ Played around with a couple of different code editors, picked up the basics of the command line and git and went through some of the lectures [here](https://missing.csail.mit.edu/).  
 
-5. __Touch Typing:__ Imagine having to use a pencil taped to a brick every time you want to write something. That's what using a keyboard felt like to me. I decided to make the interface between my brain and the computer as seamless as possible, and learnt to touch type. Best investment of my time ever!
+5. __Touch Typing:__ Imagine having to use a pencil taped to a brick every time you want to write something. That is what using a keyboard felt like to me. I decided to make the interface between my brain and the computer as seamless as possible, and learnt to touch type. Best investment of my time ever!
 
 ![png](/images/2020-05-17/engelbart.PNG)
 
