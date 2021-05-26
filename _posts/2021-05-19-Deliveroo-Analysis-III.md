@@ -860,6 +860,7 @@ The following are some ideas for next steps:
 6. Look at the other players in the Deliveroo ecosystem: What about the riders? Would they get some benefit out of analysing their delivery data? Comparing their stats against other riders, or the population average? I don't know how much data Deliveroo shares with them, and in what format, but employers are typically incentivized to give their employees as little information as possible.
 
 # Footnotes
+* footnotes will be placed here
 {:footnotes}
 [^1]: Well, I also know which other items typically accompany it, so one could in theory say that since the item 1, item2 and item3 occur together, it's a mains+side+drink combo. However, it's MUCH harder to extract meaningful inferences in this way, and almost impossible when your dataset is so small!
 
