@@ -37,6 +37,8 @@ If I can't get the data from an external source, I have to look within. The only
 
 For certain restaurants this kind of binary categorization doesn't make sense - For eg. Ping Pong has a system of small plates, so all their items are Mains (or Sides). In such a case, forcing a divide into 2 categories creates an artificial distinction. There are ways to determine the correct number of clusters for a dataset, but I don't have a lot of expertise in these matters and hence decided to just take this as an input from the user.
 
+[^1]: Well, I also know which other items typically accompany it, so one could in theory say that since the item 1, item2 and item3 occur together, it's a mains+side+drink combo. However, it's MUCH harder to extract meaningful inferences in this way, and almost impossible when your dataset is so small!
+
 ## Item Name Changes - Prefix Clustering
 
 When analysing the distribution of items per restaurant, I found that items names will sometimes change over time. Example: Shake Shack will sometimes refer to it's "Chipotle Cheddar Chick'n Burger" as just "Chipotle Cheddar Chick'n", and the name of Ping Pong's "Potato and Edamame Cake __(V)__ (2pcs)" changed one day to "Potato and Edamame Cake __(v)__ (2pcs)". 
@@ -858,11 +860,5 @@ The following are some ideas for next steps:
     If Deliveroo ever opens up a restaurant consultancy, remember, you saw it here first!
 
 6. Look at the other players in the Deliveroo ecosystem: What about the riders? Would they get some benefit out of analysing their delivery data? Comparing their stats against other riders, or the population average? I don't know how much data Deliveroo shares with them, and in what format, but employers are typically incentivized to give their employees as little information as possible.
-
----
-
-[^1]: Well, I also know which other items typically accompany it, so one could in theory say that since the item 1, item2 and item3 occur together, it's a mains+side+drink combo. However, it's MUCH harder to extract meaningful inferences in this way, and almost impossible when your dataset is so small!
-
----
 
 {% include comments.html %}
