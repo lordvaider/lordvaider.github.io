@@ -35,7 +35,7 @@ __Bargaining__: I did find some apps that claimed to be able to retrieve the Wha
 
 __Depression__: The most furstrating part was that the data was right there! In my phone! In theory, I could just scroll through the logs one by one and enter each call log into a table. Yeah right, all I need to pull that off is a metric ton of Adderall. Maybe I could build a rig with a robotic arm that would do the scrolling and clicking, and a camera that would take pictures of the screen and extract the data? I actually entertained this idea for about 5 seconds, before remembering that every hardware project I've attempted has ended in either abortion, miscarriage or attempted suicide...
 
-![png](/images/2020-06-21/joylobo.png)
+![png](/images/2020-06-21/joylobo.PNG)
 
 <p style="text-align: center;">
 <i><a href="https://3idots.fandom.com/wiki/Joy_Lobo">Joy Lobo</a> also abandoned his hardware project, but he showed impressive follow through on his suicide.</i>
@@ -79,13 +79,13 @@ __Correctness__: Given the simplicity of my use case, I was expecting perfect ac
 
 __Output Consistency__: This was a much more serious problem (Mostly because it forced me to write more code than I'd initially expected to). The format of the string that I received as an output was not consistent across all my images. In some cases, the call type and the duration were part of the same line. In others they were in different lines - The figures below show the 2 main classes of text output I received in this case.
 
-![png](/images/2020-06-21/Template1.png)
+![png](/images/2020-06-21/Template1.PNG)
 
 <p style="text-align: center;">
 <i><b>Class 1:</b> Each token printed in a separate line</i>
 </p>
 
-![png](/images/2020-06-21/Template2.png)
+![png](/images/2020-06-21/Template2.PNG)
 
 <p style="text-align: center;">
 <i><b>Class 2:</b> Call Type and Call Duration in the same line, Call Time and Call Size in the same line</i>
