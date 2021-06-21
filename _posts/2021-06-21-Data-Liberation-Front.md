@@ -68,7 +68,7 @@ The next step was figuring out how to control my mouse and keyboard with code. I
 
 You can find the code I used to perform the screen grabbing [here](https://github.com/lordvaider/whatsappscraper/blob/main/imgscraper.py). After running this, I had a folder of images like the following, one for each call log.
 
-![png](/images/2020-06-21/Example1.gif)
+![png](/images/2020-06-21/Example1.PNG)
 
 ## Optical Character Recognition 
 Optical Character Recognition or OCR is the use of technology to distiguish and identify characters in images and convert them to text. It is one of the earliest areas of AI research and there are some truly impressive OCR tools out there today - Two examples that blew me away were Google Lens, which can read in foreign language text from your phone camera and translate in real time, and mathpix which can be used to generate latex for mathematical formulas. 
