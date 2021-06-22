@@ -158,13 +158,13 @@ Let's say that the inferred posterior distribution for the previous line $$L_{i-
 
 Then we can further update the probability distribution for $$L_i$$ as follows:
 
-$$P(L_i) = P(L_i|L_{i-1} =$$ Size$$)*P(L_{i-1} =$$ Size$$)$$ + $$P(L_i|L_{i-1} =$$ Duration$$)*P(L_{i-1} =$$ Duration$$)$$
+$$P(L_i) = P(L_i|L_{i-1} =$$ Size$$)\*P(L_{i-1} =$$ Size$$)$$ + $$P(L_i|L_{i-1} =$$ Duration$$)\*P(L_{i-1} =$$ Duration$$)$$
 
 where:
 
-$$P(L_i|L_{i-1}$$ = Size) $$\propto P(L_{i-1} =$$ Size$$|L_i)*P(L_i)$$
+$$P(L_i|L_{i-1}$$ = Size) $$\propto P(L_{i-1} =$$ Size$$|L_i)\*P(L_i)$$
 
-$$P(L_i|L_{i-1}$$ = Duration) $$\propto P(L_{i-1} =$$ Duration$$|L_i)*P(L_i)$$
+$$P(L_i|L_{i-1}$$ = Duration) $$\propto P(L_{i-1} =$$ Duration$$|L_i)\*P(L_i)$$
 
 The final posterior probability is $$[0.9786, 0.0202, 0.0011]$$ or a 97.8% chance that the token is a Call Duration.
 
