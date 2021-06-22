@@ -124,7 +124,7 @@ In this section, I've tried to flesh out a probabilistic approach to the data ex
 
 In a broad sense, the idea is to represent the state of knowledge about each line of the input, and what kind of token it represents, using a probability distribution. Our knowledge about the format of the input text can be specified with some conditional probabilities, and then it's just a question of applying Bayesian inference to get the resulting posterior distribution for each line. Once this is done, the maximum probability token for each line can be selected. It might clarify things to view the example above in the context of this approach.
 
-__Example:__ Again, we have the line L = "19:42" and want to figure out what kind of token it is. For simplicity, let us assume we know it is either a Call Duration, a Call Time, or a Call Size, and the prior probability of each possibility is 0.33. We can repesent this state of knowledge with the vector $[0.33, 0.33, 0.33]$
+__Example:__ Again, we have the line L = "19:42" and want to figure out what kind of token it is. For simplicity, let us assume we know it is either a Call Duration, a Call Time, or a Call Size, and the prior probability of each possibility is 0.33. We can repesent this state of knowledge with the vector $$[0.33, 0.33, 0.33]$$
 
 In order to get the final distribution or each line, we must go through a list of tests. Each test comes with a list of conditional probabilities (The probability of a particular test outcome given that the line is of a particular type) - Given these, the posterior distribution can be inferrred from the test outcome. The tests and the associated conditional probabilities encode our assumptions about how the system behaves.
 
