@@ -130,9 +130,9 @@ In order to get the final distribution or each line, we must go through a list o
 
 One such test could be to compare L with the regular expression R = \[0-9\]{2}:\[0-9\]{2}. The associated conditional probabilities are:
 
-$$P(L$$ matches $$R\| L =$$ Duration$$)$$ = 0.99
+$$P(L$$ matches $$R \textbar L =$$ Duration$$)$$ = 0.99
 
-$$P(L$$ matches $$R\| L =$$ Time$$)$$ = 0.99
+$$P(L$$ matches $$R$$ \| $$L =$$ Time$$)$$ = 0.99
 
 $$P(L$$ matches $$R\| L =$$ Size$$)$$ = 0.01
 
