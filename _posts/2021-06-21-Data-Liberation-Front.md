@@ -158,7 +158,7 @@ Let's say that the inferred posterior distribution for the previous line $$L_{i-
 
 Then we can further update the probability distribution for $$L_i$$ as follows:
 
-$$P(L_i) = P(L_i$$ \| $$L_{i-1} =$$ Size$$)$$\*P$$(L_{i-1} =$$ Size$$)$$ + $$P(L_i$$ \| $$L_{i-1} =$$ Duration$$)$$\*$$P(L_{i-1} =$$ Duration$$)$$
+$$P(L_i) = P(L_i$$ \| $$L_{i-1} =$$ Size$$)$$\*$$P(L_{i-1} =$$ Size$$)$$ + $$P(L_i$$ \| $$L_{i-1} =$$ Duration$$)$$\*$$P(L_{i-1} =$$ Duration$$)$$
 
 where:
 
