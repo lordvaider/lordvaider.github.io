@@ -130,11 +130,11 @@ In order to get the final distribution or each line, we must go through a list o
 
 One such test could be to compare L with the regular expression R = \[0-9\]{2}:\[0-9\]{2}. The associated conditional probabilities are:
 
-$$P(L$$ matches $$R$$\|$$L =$$ Duration$$)$$ = 0.99
+$$P(L$$ matches $$R$$ \| $$L =$$ Duration$$)$$ = 0.99
 
-$$P(L$$ matches $$R$$\|$$L =$$ Time$$)$$ = 0.99
+$$P(L$$ matches $$R$$ \| $$L =$$ Time$$)$$ = 0.99
 
-$$P(L$$ matches $$R$$\|$$L =$$ Size$$)$$ = 0.01
+$$P(L$$ matches $$R$$ \| $$L =$$ Size$$)$$ = 0.01
 
 We never set any of the probabilities to 1 or 0, becaue there is [always a chance](https://www.lesswrong.com/posts/QGkYCwyC7wTDyt3yT/0-and-1-are-not-probabilities) that the OCR output was corrupted (Or that we are living in The Matrix).
 
@@ -158,13 +158,13 @@ Let's say that the inferred posterior distribution for the previous line $$L_{i-
 
 Then we can further update the probability distribution for $$L_i$$ as follows:
 
-$$P(L_i) = P(L_i$$\|$$L_{i-1} =$$ Size$$)\*P(L_{i-1} =$$ Size$$)$$ + $$P(L_i$$\|$$L_{i-1} =$$ Duration$$)\*P(L_{i-1} =$$ Duration$$)$$
+$$P(L_i) = P(L_i$$ \| $$L_{i-1} =$$ Size$$)$$\*P$$(L_{i-1} =$$ Size$$)$$ + $$P(L_i$$ \| $$L_{i-1} =$$ Duration$$)$$\*$$P(L_{i-1} =$$ Duration$$)$$
 
 where:
 
-$$P(L_i$$\|$$L_{i-1}$$ = Size) $$\propto P(L_{i-1} =$$ Size\|$$L_i)$$\*$$P(L_i)$$
+$$P(L_i$$ \| $$L_{i-1}$$ = Size) $$\propto P(L_{i-1} =$$ Size \| $$L_i)$$\*$$P(L_i)$$
 
-$$P(L_i$$\|$$L_{i-1}$$ = Duration) $$\propto P(L_{i-1} =$$ Duration\|$$L_i)$$\*$$P(L_i)$$
+$$P(L_i$$ \| $$L_{i-1}$$ = Duration) $$\propto P(L_{i-1} =$$ Duration \| $$L_i)$$\*$$P(L_i)$$
 
 The final posterior probability is $$[0.9786, 0.0202, 0.0011]$$ or a 97.8% chance that the token is a Call Duration.
 
