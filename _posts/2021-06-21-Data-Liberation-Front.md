@@ -1,6 +1,6 @@
 # The Data Liberation Front
 
-_The code for this project can be found [here](https://github.com/lordvaider/whatsappscraper)_
+_The code for this project can be found [here].(https://github.com/lordvaider/whatsappscraper)_
 
 For my next post, I'd initially planned to analyse some WhatsApp group chats and see what I could deduce about the chat participants and the relationships between them. There are quite a few examples out there of people who have built tools that collect and display statistics like number of messages sent, most active time of day and most used smileys. While this is a perfectly reasonable thing to do, I wanted to try and figure out more readily consumable information like the names (and nicknames) of the people in the chat, their birthdays and anniversaries, and maintain a scoreboard of who wished whom, which people seem to participate in conversations together and try to infer who is close and who isn't - Really, I can't think of a more noble use case for my datadude skills than to generate fresh leads for gossip!
 
@@ -19,11 +19,11 @@ For as long as I can remember, WhatsApp let you easily export your chat in a nea
  - __Erlang__: The backend of WhatsApp is written in Erlang. I don't know why exactly that is impressive, but I do know that Erlang is fucking cool [^1]. To give you an idea, WhatsApp's use of Erlang is often touted as the reason they were able to handle over 900M users with only 50 engineers.
  - __Obvious Features that no one else has figured out__: When you send chats on WhatsApp and there's no signal, WhatsApp will automatically send the chat when the signal resumes! I'm still not sure why Messenger can't accomplish this. 
  
- "Good for WhatsApp!" - I thought. Clearly data portability is just one more thing that these guys handle in a clean, simple and efficient manner! Unfortunately, I was in for a rude shock...
+ "Good for WhatsApp!" - I thought. Data portability is just one more thing that these guys handle in a clean, simple and efficient manner! Unfortunately, I was in for a rude shock...
  
 # WhatsApp - The Ugly
 
-I don't remember why, but I decided to export and save down my WhatsApp call logs as well - The more data, the better right? However, on clicking the 3 dots, I couldn't find the export call logs option. At first, I thought ah well, guess WhatsApp isn't perfect after all - They've buried the Export Call Logs button somewhere deep inside the settings window. After a few minutes of poring over the settings, it dawned on me that maybe _there is no Export Call Logs option in WhatsApp!_ I fired off some Google searches, frantically trying to refute this possibility but each empty result cemented it further into a horrifying fact.
+I don't remember why, but I decided to export and save down my WhatsApp call logs as well - The more data, the better right? However, on clicking the 3 dots, I couldn't find the "Export Call Logs" option. At first, I thought ah well, guess WhatsApp isn't perfect after all - They've buried the Export Call Logs button somewhere deep inside the settings window. After a few minutes of poring over the settings, it dawned on me that maybe _there is no Export Call Logs option in WhatsApp!_ I fired off some Google searches, frantically trying to refute this possibility but each empty result cemented it further into a horrifying fact.
 
 # The 5 Stages of Grief
 
@@ -100,7 +100,7 @@ The eventual goal of the project was to convert the text ouput of the OCR engine
         Date (date)
         Calls (list of calls)
 
-With each call being an onject of the following class:
+With each call being an object of the following class:
 
     Call:
         cType (Incoming/Outgoing/Missed)
@@ -126,7 +126,7 @@ In a broad sense, the idea is to represent the state of knowledge about each lin
 
 __Example:__ Again, we have the line L = "19:42" and want to figure out what kind of token it is. For simplicity, let us assume we know it is either a Call Duration, a Call Time, or a Call Size, and the prior probability of each possibility is 0.33. We can repesent this state of knowledge with the vector $$[0.33, 0.33, 0.33]$$
 
-In order to get the final distribution or each line, we must go through a list of tests. Each test comes with a list of conditional probabilities (The probability of a particular test outcome given that the line is of a particular type) - Given these, the posterior distribution can be inferrred from the test outcome. The tests and the associated conditional probabilities encode our assumptions about how the system behaves.
+In order to get the final distribution for each line, we must go through a list of tests. Each test comes with a list of conditional probabilities (The probability of a particular test outcome given that the line is of a particular type) - Given these, the posterior distribution can be inferrred from the test outcome. The tests and the associated conditional probabilities encode our assumptions about how the system behaves.
 
 One such test could be to compare L with the regular expression R = \[0-9\]{2}:\[0-9\]{2}. The associated conditional probabilities are:
 
@@ -186,7 +186,7 @@ The battle to get my call logs out of WhatsApp was a microcosm of the upcoming P
 # Footnotes
 * footnotes will be placed here
 {:footnotes}
-[^1]: Some day, I'll figure out exactly why Erlang is so cool (Right after I finish reading all 7 volumes of [The Art of Computer Programming](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming), [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html) and the Escher and Bach parts of [GEB](https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach))
+[^1]: Some day, I'll figure out exactly why Erlang is so cool (Right after I finish reading [The Art of Computer Programming](https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming), [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html) and the Escher and Bach parts of [GEB](https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach))
 
 ---
 
