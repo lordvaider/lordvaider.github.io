@@ -16,7 +16,7 @@ The series is divided into 3 sections:
 
 Despite having an advanced degree in Computer Science and working as a sort-of-software engineer for several years, I knew embarrasingly little about the basic machinery required to work on this project. Hence I spent a fair bit of time just learning some super simple stuff:
 
-1. __Pandas:__ For those that don't know, Pandas is a Python library used for dealing with tabular data sets (Dataframes) - Pretty much bread and butter for any datadude. Again, going through the Kaggle tutorial was sufficient to get started.
+1. __Pandas:__ For those that don't know, Pandas is a Python library used for dealing with tabular data sets (Dataframes) - Pretty much bread and butter for any datadude. Going through the Kaggle tutorial was sufficient to get started.
 
 2. __Jupyter Notebooks:__ I guess the only thing I had to learn was the fact that they exist! I really love it when tools are powerful AND easy to use - I felt like I had been looking for Jupyter notebooks my entire life!
 
