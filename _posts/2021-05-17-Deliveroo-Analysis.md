@@ -16,15 +16,13 @@ The series is divided into 3 sections:
 
 Despite having an advanced degree in Computer Science and working as a sort-of-software engineer for several years, I knew embarrasingly little about the basic machinery required to work on this project. Hence I spent a fair bit of time just learning some super simple stuff:
 
-1. __Python:__ I just went through the basic tutorial on Kaggle, so list comprehension is the most advanced thing I know, but that was already enough to do a lot. 
+1. __Pandas:__ For those that don't know, Pandas is a Python library used for dealing with tabular data sets (Dataframes) - Pretty much bread and butter for any datadude. Again, going through the Kaggle tutorial was sufficient to get started.
 
-2. __Pandas:__ For those that don't know, Pandas is a Python library used for dealing with tabular data sets (Dataframes) - Pretty much bread and butter for any datadude. Again, going through the Kaggle tutorial was sufficient to get started.
+2. __Jupyter Notebooks:__ I guess the only thing I had to learn was the fact that they exist! I really love it when tools are powerful AND easy to use - I felt like I had been looking for Jupyter notebooks my entire life!
 
-3. __Jupyter Notebooks:__ I guess the only thing I had to learn was the fact that they exist! I really love it when tools are powerful AND easy to use - I felt like I had been looking for Jupyter notebooks my entire life!
+3. __Other tools:__ Played around with a couple of different code editors, picked up the basics of the command line and git and went through some of the lectures [here](https://missing.csail.mit.edu/).  
 
-4. __Other tools:__ Played around with a couple of different code editors, picked up the basics of the command line and git and went through some of the lectures [here](https://missing.csail.mit.edu/).  
-
-5. __Touch Typing:__ Imagine having to use a pencil taped to a brick every time you want to write something. That is what using a keyboard felt like to me. I decided to make the interface between my brain and the computer as seamless as possible, and learnt to touch type. Best investment of my time ever!
+4. __Touch Typing:__ Imagine having to use a pencil taped to a brick every time you want to write something. That is what using a keyboard felt like to me. I decided to make the interface between my brain and the computer as seamless as possible, and learnt to touch type. Best investment of my time ever!
 
 ![png](/images/2020-05-17/engelbart.PNG)
 
