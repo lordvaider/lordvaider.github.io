@@ -2,7 +2,7 @@
 
 _The code for this project can be found [here](https://github.com/lordvaider/whatsappscraper)._
 
-For my next post, I'd initially planned to analyse some WhatsApp group chats and see what I could deduce about the chat participants and the relationships between them. There are quite a few examples out there of people who have built tools that collect and display statistics like number of messages sent, most active time of day and most used smileys. While this is a perfectly reasonable thing to do, I wanted to try and figure out more readily consumable information like the names (and nicknames) of the people in the chat, their birthdays and anniversaries, and maintain a scoreboard of who wished whom, which people seem to participate in conversations together and try to infer who is close and who isn't - Really, I can't think of a more noble use case for my datadude skills than to generate fresh leads for gossip!
+For my next post, I'd initially planned to analyse some WhatsApp group chats and see what I could deduce about the chat participants and the relationships between them - Ideally something that goes beyond the tools that collect and display statistics like number of messages sent, most active time of day and most used smileys.
 
 Unfortunately, I got side-tracked while trying to collect my raw WhatsApp data, and because I'm way behind on my publishing deadlines, I decided to write about that instead.
 
