@@ -22,9 +22,9 @@ Further, Google will sometimes fuck up the tagging of activitySegments (like the
 
 ## Approach 1 - Rawdogging data, Costly API calls, Simplifying assumptions
 
-Given the above, it seemed that if we want a Google proof solution (In terms of being immune to their sloppy processing and their potential bankruptcy from class actions filed by rock eaters), the most reliable way is to use the raw worldline. Further, for the task I had in mind, the solution seemed super simple - For each point on the worldline, map it to the corresponding country. Find all the points in time when the country changes and Boom - You have your travel history table. 
+Given the above, it seemed that if we want a Google proof solution (In terms of being immune to both, their sloppy processing _and_ their potential future bankruptcy from class action lawsuits filed by [rock-eaters](https://news.ycombinator.com/item?id=40461836)), the most reliable way is to use the raw worldline. Further, for the task I had in mind, the solution seemed super simple - For each point on the worldline, map it to the corresponding country. Find all the points in time when the country changes and Boom - You have your travel history table. 
 
-**Problem with this approach**: Mapping from (Latitude, Longitude) → Country is an expensive function call. The raw data contains a point every 15-20 seconds, so that translates to a lot of points.  In 3000 days of history, I had a 15 million raw data points. The really dumb approach of simply mapping each raw datapoint to a country is way too slow. Maybe we could do something cleverer like form a small number of clusters (1000?), map each cluster to a country and then use that to label raw points? It could work, but it’s not foolproof by any means and relies on a complex algo. I’m a lazy fucker who hates complexity so I decided to think some more before going down this route.
+**Problem with this approach**: Mapping from (Latitude, Longitude) → Country is an expensive function call. The raw data contains a point every 15-20 seconds, so that translates to a lot of points.  In 3000 days of history, I had a 15 million raw data points. The really dumb approach of simply mapping each raw datapoint to a country is waaaaay too slow. Maybe we could do something cleverer like form a small number of clusters (1000?), map each cluster to a country and then use that to label raw points? It could work, but it’s not foolproof by any means and relies on a complex algo. I’m a lazy fucker who hates complexity so I decided to think some more before going down this route.
 
 **Exploiting Timeline gaps:** The approach I took was to use the fact that the data is already naturally clustered - As I stated earlier, the worldline is discontinuous whenever my cellphone is not online and these gaps cluster the raw data in a natural way - The insight is to realise that most country changes occur during such gaps. This is because:
 
@@ -35,7 +35,7 @@ Now there will obviously be some discontinuities which were not travel related -
 
 **Final Approach:** So what I did is 
 1. Evaluate the physical distance between consecutive points in the worldline (I used the [Haversine metric](https://en.wikipedia.org/wiki/Haversine_formula), just to show off more than anything else). 
-2. Reverse-sorted and got the consecutive worldline points with the largest distance between them. 
+2. Reverse-sorted and got the consecutive worldline points with the largest distance between them. These are the gaps.  
 3. Applied a sensible threshold cutoff - 500 kms seems like a good lower bound for international flights. 
 4. Mapped the remaining few hundred points to countries
 5. Filtered down to the gaps where start_country != end_country 
