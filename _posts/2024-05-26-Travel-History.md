@@ -1,4 +1,4 @@
-# Google location history
+# Google Timeline Analysis - Finally Something *Useful*!
 
 Last year, I had to submit a large form with my travel history outside of UK. 
 
@@ -22,7 +22,7 @@ Further, Google will sometimes fuck up the tagging of activitySegments (like the
 
 ## Approach 1 - Rawdogging data, Costly API calls, Simplifying assumptions
 
-Given the above, it seemed that if we want a Google proof solution (In terms of being immune to both, their sloppy processing _and_ their potential future bankruptcy from class action lawsuits filed by [rock-eaters](https://news.ycombinator.com/item?id=40461836)), the most reliable way is to use the raw worldline. Further, for the task I had in mind, the solution seemed super simple - For each point on the worldline, map it to the corresponding country. Find all the points in time when the country changes and Boom - You have your travel history table. 
+Given the above, it seemed that if we want a Google proof solution (In terms of being immune to both, their sloppy data processing _and_ their potential future bankruptcy from class action lawsuits filed by [rock-eaters](https://www.reddit.com/r/google/comments/1cziil6/a_rock_a_day_keeps_the_doctor_away/)), the most reliable way is to use the raw worldline. Further, for the task I had in mind, the solution seemed super simple - For each point on the worldline, map it to the corresponding country. Find all the points in time when the country changes and Boom - You have your travel history table. 
 
 **Problem with this approach**: Mapping from (Latitude, Longitude) → Country is an expensive function call. The raw data contains a point every 15-20 seconds, so that translates to a lot of points.  In 3000 days of history, I had a 15 million raw data points. The really dumb approach of simply mapping each raw datapoint to a country is waaaaay too slow. Maybe we could do something cleverer like form a small number of clusters (1000?), map each cluster to a country and then use that to label raw points? It could work, but it’s not foolproof by any means and relies on a complex algo. I’m a lazy fucker who hates complexity so I decided to think some more before going down this route.
 
@@ -59,7 +59,7 @@ Chronologically, this was the first approach that I took to solve this problem -
 
 This idea is obvious enough that a few other people have implemented their own versions of it:
 
-1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). Obviously Laurens is much smarter than I am, but on the other hand, he is much less profane. 
+1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). Obviously Laurens is much smarter than I am, but on the other hand, I am much more profane. 
 2. [Geoprocessing](https://geoprocessing.online/): This company lets you upload your timeline data and then helps you with various analyses. I didn’t want to upload my data anywhere so haven’t experimented with this.
 3. [Mileagewise](https://www.mileagewise.com/): They use Google timeline data to create mileage logs (In the US you can claim tax benefits by claiming the mileage incurred while driving around as a business expense) This is a very different usecase from the one considered here, but I threw it in because it's an ingenious use of timeline data.
 
