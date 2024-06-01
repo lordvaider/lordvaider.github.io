@@ -4,7 +4,7 @@ Last year, I had to submit a large form with my travel history outside of UK.
 
 The normie approach would be to sit down with your passport and a large cup of coffee, note down each stamp and figure out when the corresponding flight was - Yuck. Further, the UK doesn't stamp your passport on the way out, so that leaves you with edge cases (If you arrived in Bangkok on 17th May, did you leave the UK on the 16th or the 17th?) - Such edge cases would have to be resolved by tracking down the corresponding flight ticket in your inbox. Double Yuck.
 
-The Type A personality approach would be to maintain an ongoing spreadsheet of your travel history that you update at fixed intervals (Along with the spreadsheets that track your investments, the expiry dates of all your medications and the last known locations of your sworn enemies). Triple mega ultra YUCK.
+The Type A personality approach would be to maintain an ongoing spreadsheet of your travel history that you update at fixed intervals (Along with the spreadsheets that track your investments, the expiry dates of all your medications and the last known locations of all your sworn enemies). Triple mega ultra YUCK.
 
 This seemed like a prime opportunity for a datadude revival post. Google has been stalking my physical location for years and it was finally time for me to extract some value from that. I downloaded the relevant files from Google Takeout and I was ready to go. 
 
@@ -61,8 +61,10 @@ This idea is obvious enough that a few other people have implemented their own v
 
 1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). If Lauren already solved the problem, why blog my solution?  Well I could give you reasons like my algorithm is slightly different or that it's implemented in python instead of R, but really it's because because Pete Campbell is my spirit animal. 
 
-![png](/images/2024-05-26/campbell.png)
-
+	![png](/images/2024-05-26/campbell.png)
+	<p style="text-align: center;">
+	<i>You tell 'em Pete!</i>
+	</p>
 2. [Geoprocessing](https://geoprocessing.online/): This company lets you upload your timeline data and then helps you with various analyses. I didn’t want to upload my data anywhere so haven’t experimented with this.
 3. [Mileagewise](https://www.mileagewise.com/): They use Google timeline data to create mileage logs (In the US you can claim tax benefits by claiming the mileage incurred while driving around as a business expense) This is a very different usecase from the one considered here, but I threw it in because it's an ingenious use of timeline data.
 
