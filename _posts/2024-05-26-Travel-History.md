@@ -76,6 +76,6 @@ The most devastating criticism of the quantified-self subculture is that the pro
 <i>Looks like Google's data scientists exercised as much creativity in designing this digest as the guys who named their geographic data processing company Geoprocessing</i>
 </p>
 
-This project shows that you can extract value from your personal data in a simple and direct way. As with any software project, the painful part is getting it to work for the long tail of humans. 
+This project shows that you can extract value from your personal data in a simple and direct way. As with any project, a quick and dirty first cut will handle 80% of the cases  but a solution which addresses all the edge cases presented by all of humanity is beyond the scope of a blog post project hacked together in a few hours. However, I hope that at least a few readers will be able to save a couple of hours of tedious effort by leveraging this code to fill out their own travel history forms!
 
 
