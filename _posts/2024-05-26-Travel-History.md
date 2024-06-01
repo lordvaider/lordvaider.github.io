@@ -40,7 +40,7 @@ Now there will obviously be some discontinuities which were not travel related -
 4. Mapped the remaining few hundred points to countries
 5. Filtered down to the gaps where start_country != end_country 
 
-and voila! I had a table of all my international travels.
+And voila! I had a table of all my international travels.
 
 **Comments**: This solution works for me (And one other super-lazy friend who I sent my jupyter notebook to) but will the underlying assumptions hold for everyone? Certainly it won’t capture the country changes for Europeans that routinely drive/take trains across country borders. Will it work for the perenially online fucks who check their emails while on international flights? This solution won't work for a lot of people and that is unsatisfying. On the plus side, it uses the raw data, and the code and logic is extremely simple - The only complicated bit is the country lookup and we outsource that to an API.
 
@@ -59,9 +59,9 @@ Chronologically, this was the first approach that I took to solve this problem -
 
 This idea is obvious enough that a few other people have implemented their own versions of it:
 
-1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). If Lauren already solved the problem, why blog my solution?  Well my solution is slightly different, it's implemented in python instead of R, but mostly because Pete Campbell is my spirit animal. 
+1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). If Lauren already solved the problem, why blog my solution?  Well I could give you reasons like my algorithm is slightly different or that it's implemented in python instead of R, but really it's because because Pete Campbell is my spirit animal. 
 
-![png](/images/2024-05-26/campbell.jpg)
+![png](/images/2024-05-26/campbell.PNG)
 
 2. [Geoprocessing](https://geoprocessing.online/): This company lets you upload your timeline data and then helps you with various analyses. I didn’t want to upload my data anywhere so haven’t experimented with this.
 3. [Mileagewise](https://www.mileagewise.com/): They use Google timeline data to create mileage logs (In the US you can claim tax benefits by claiming the mileage incurred while driving around as a business expense) This is a very different usecase from the one considered here, but I threw it in because it's an ingenious use of timeline data.
@@ -69,6 +69,12 @@ This idea is obvious enough that a few other people have implemented their own v
 ## Conclusion
 
 The most devastating criticism of the quantified-self subculture is that the projects seldom have tangible value - Pretty graphs that show your travel locations on a map or analytics that count how many cities/countries you visited last month may be interesting, but they are not actionable in any meaningful way. This is why most people don't bother with the Timeline digest mail that you receive from Google every month - Who gives a fuck?
+
+![png](/images/2024-05-26/timeline_digest.PNG)
+
+<p style="text-align: center;">
+<i><b>Class 2:</b> Google's data scientists exercised as much creativity in designing this digest as the guys who named their geographic data processing company Geoprocessing</i>
+</p>
 
 This project shows that you can extract value from your personal data in a simple and direct way. As with any software project, the painful part is getting it to work for the long tail of humans. 
 
