@@ -1,10 +1,10 @@
-# Google Timeline Analysis - Finally Something *Useful*!
+# Google Timeline Analysis (Finally Something Useful)
 
 Last year, I had to submit a large form with my travel history outside of UK. 
 
-The normie approach would be to sit down with your passport and a large cup of coffee, note down each stamp and figure out when the corresponding flight was - Yuck. Also, the UK doesn't stamp your passport on the way out, so in some cases that leaves you with edge cases (If you arrived in Bangkok on 17th May, did you leave the UK on the 16th or the 17th?) - Such edge cases would have to be resolved by tracking down the corresponding flight ticket in your inbox. Double Yuck.
+The normie approach would be to sit down with your passport and a large cup of coffee, note down each stamp and figure out when the corresponding flight was - Yuck. Further, the UK doesn't stamp your passport on the way out, so that leaves you with edge cases (If you arrived in Bangkok on 17th May, did you leave the UK on the 16th or the 17th?) - Such edge cases would have to be resolved by tracking down the corresponding flight ticket in your inbox. Double Yuck.
 
-Another "solution" would be to maintain an ongoing spreadsheet of your travel history that you update at fixed intervals (Along with the spreadsheets that track your investments, the expiry dates of all your medications and the last known locations of your arch nemeses). Triple mega ultra YUCK.
+The Type A personality approach would be to maintain an ongoing spreadsheet of your travel history that you update at fixed intervals (Along with the spreadsheets that track your investments, the expiry dates of all your medications and the last known locations of your sworn enemies). Triple mega ultra YUCK.
 
 This seemed like a prime opportunity for a datadude revival post. Google has been stalking my physical location for years and it was finally time for me to extract some value from that. I downloaded the relevant files from Google Takeout and I was ready to go. 
 
@@ -12,9 +12,9 @@ This seemed like a prime opportunity for a datadude revival post. Google has bee
 
 Google gives you your history in 2 formats. 
 
-**Format 1** is the raw data, which is basically a giant list of (Point in time, Point in space). This is the physicist’s [worldline](https://en.wikipedia.org/wiki/World_line) - Your life is just a discontinuous curve moving through 3-dimensional spacetime (The discontinuities are the times your phone wasn’t online and 3-D because Google maps doesn’t store your spatial z co-ordinate). The great thing about this format is the data schema is as simple as it can get. This has many advantages, including maximal data portability - Integrating your Google worldline and your Apple Maps worldline is a simple matter of list concatenation. The bad part is you have to do all the data crunching.
+**Raw Data:** A giant list where each entry is (Point in time, Point in space). This is the physicist’s [worldline](https://en.wikipedia.org/wiki/World_line) - Your life is just a discontinuous curve moving through 3-dimensional spacetime (The discontinuities are the times your phone wasn’t online and 3-D because Google maps doesn’t store your spatial z co-ordinate). The great thing about this format is the data schema is as simple as it can get. This has many advantages, including maximal data portability - Integrating your Google worldline and your Apple Maps worldline is a simple matter of list concatenation. The bad part is you have to do all the data crunching.
 
-**Format 2** is the semantic format. Here Google uses it’s world-class cutting edge algos and armies of highly paid data scientists to slap some meaningful labels on the raw worldline data. At a high level, your location history is divided into placeVisits (Where you spend some time stationary at location X) and activitySegment (Where you travel between location X and Y). The placeVisits may have some information like the address and the the activitySegments may have information like mode of transport etc. 
+**Semantic Format:** Here Google uses it’s world-class, cutting edge algos and armies of highly paid data scientists to slap some meaningful labels on the raw worldline data. At a high level, your location history is divided into placeVisits (Where you spend some time stationary at location X) and activitySegment (Where you travel between location X and Y). The placeVisits may have some information like the address and the the activitySegments may have information like mode of transport etc. 
 
 The problem with these is that the datamodel is complicated and varies over time. So you if you use field x in your analysis, you have no guarantee that it will exist in all the datapoints for your entire timeline or that it will exist in future timeline objects. 
 
@@ -59,7 +59,10 @@ Chronologically, this was the first approach that I took to solve this problem -
 
 This idea is obvious enough that a few other people have implemented their own versions of it:
 
-1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). Obviously Laurens is much smarter than I am, but on the other hand, I am much more profane. 
+1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). If Lauren already solved the problem, why blog my solution?  Well my solution is slightly different, it's implemented in python instead of R, but mostly because Pete Campbell is my spirit animal. 
+
+![png](/images/2024-05-26/campbell.jpg)
+
 2. [Geoprocessing](https://geoprocessing.online/): This company lets you upload your timeline data and then helps you with various analyses. I didn’t want to upload my data anywhere so haven’t experimented with this.
 3. [Mileagewise](https://www.mileagewise.com/): They use Google timeline data to create mileage logs (In the US you can claim tax benefits by claiming the mileage incurred while driving around as a business expense) This is a very different usecase from the one considered here, but I threw it in because it's an ingenious use of timeline data.
 
