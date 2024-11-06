@@ -1,4 +1,4 @@
-# Google Timeline Analysis (Finally Something Useful)
+# Irodov Ka Baap - Origins
 
 I have been interested in solving, creating and curating math puzzles since high school. This tendency has helped me crack competitive exams, clear job interviews and make friends with loads of interesting people. As a high schooler, I had dreamt of writing a book with all my favourite puzzles in it, and calling it Irodov Ka Baap. 
 
