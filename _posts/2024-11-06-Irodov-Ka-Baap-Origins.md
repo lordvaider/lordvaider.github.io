@@ -4,10 +4,10 @@ I have been interested in solving, creating and curating math puzzles since high
 
 Some background here for readers who don't know - __"Problems in General Physics" by I.E. Irodov__ was a book that nerdy Indian teenagers venerated, feared and adored. It was one of the classic preparation resources for the IIT JEE (An annual entrance exam which is the gateway to the prestigious Indian Institutes of Technology) and every serious aspirant proudly owned a copy that was dog-eared and worn out from frequent use (I used the past tense because things have probably changed since I gave the exam).
 
-	![png](/images/2024-11-06/irodov.png)
-	<p style="text-align: center;">
-	<i>I always felt like the cover image should've been problem 3.153 - The only problem Irodov thought was worthy of a hint</i>
-	</p>
+![png](/images/2024-11-06/irodov.png)
+<p style="text-align: center;">
+<i>I always felt like the cover image should've been problem 3.153 - The only problem Irodov thought was worthy of a hint</i>
+</p>
 
 In Hindi, the literal meaning of the phrase "X ka baap" is "X's father", and colloquially it is used to denote something far superior to X. Hence the title "Irodov Ka Baap" was my way of claiming that my (yet to be written) book was far superior to a book beloved by several generations of my country's most brilliant students. To answer your question, yes, 18 year old me was an insufferable prick with delusions of grandeur. 
 
