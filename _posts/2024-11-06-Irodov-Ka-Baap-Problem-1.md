@@ -11,15 +11,23 @@ This problem belongs to a category of puzzles that exploit the logical concept o
 
 At first glance, such puzzles can feel perplexing or even paradoxical. A common reaction is, "Where is the new information coming from?" After all, for progress to be made, the participants $$P$$ and $$Q$$ must gain new insights with each round, even though no additional explicit information is revealed. This leads to the realization that the source of this "new" information is not external but emerges from the participants’ reasoning about each other's reasoning.
 
-The key to unraveling these puzzles is understanding that 1) $$P$$ and $$Q$$ are infinitely intelligent and that 2) they are both aware of the setup. This means in any given situation they can make all logically possible deductions and know that other participants can do the same. Therefore, the lack of immediate deductions becomes itself a crucial source of information. For example, if $$P$$ doesn’t know the answer in the first round, it implies that certain conditions must hold for $$Q$$, allowing $$Q$$ to refine their possibilities—and vice versa.
+The key to unraveling these puzzles is understanding that:
+
+1) $$P$$ and $$Q$$ are infinitely intelligent and that 
+
+2) They are both aware of the setup. 
+
+This means in any given situation they can make all logically possible deductions and know that other participants can do the same. Therefore, the lack of immediate deductions becomes itself a crucial source of information. For example, if $$P$$ doesn’t know the answer in the first round, it implies that certain conditions must hold for $$Q$$, allowing $$Q$$ to refine their possibilities—and vice versa.
 
 With this in mind, let us systematically track the information that both participants have in each round. 
 
-__Start of the game__
+__Start of the game__:
+
 At the start of the game, both $$P$$ and $$Q$$ see 2 numbers $$a$$ and $$b$$ (Without loss of generality, $$a < b$$). Hence we have:
 
 __$$P$$'s knowledge__: 
 1. $$q = \frac{a}{p}$$ OR $$q = \frac{b}{p}$$
+
 2. $$q > 1$$
 
 __$$Q$$'s knowledge__: 
