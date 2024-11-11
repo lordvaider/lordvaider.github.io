@@ -27,6 +27,7 @@ __$$Q$$'s knowledge__:
 2. $$p > 1$$
 
 __Round 1, Question 1:__
+
 If $$\frac{a}{p} < 1$$, $$P$$ can immediately eliminate it and knows that $$q = \frac{b}{p}$$
 
 Conversely, if $$P$$ cannot immediately identify $$q$$, this must imply $$\frac{a}{p} > 1 \implies p < a$$.
@@ -35,9 +36,11 @@ Hence if $$P$$ answers No in the first round, $$Q$$'s knowledge gets updated as 
 
 __$$Q$$'s knowledge__: 
 1. $$p = \frac{a}{q}$$ OR $$p = \frac{b}{q}$$
+
 2. $$1 < p < a$$
 
 __Round 1, Question 2:__
+
 If $$\frac{b}{q} > a$$, $$Q$$ can immediately deduce $$p$$.
 
 Conversely, if $$Q$$ cannot deduce $$p$$, this must imply $$\frac{b}{q} < a \implies q > \frac{b}{a}$$.
