@@ -15,7 +15,7 @@ The key to unraveling these puzzles is understanding that 1) $$P$$ and $$Q$$ are
 
 With this in mind, let us systematically track the information that both participants have in each round. 
 
-## Start of the game
+__Start of the game__
 At the start of the game, both $$P$$ and $$Q$$ see 2 numbers $$a$$ and $$b$$ (Without loss of generality, $$a < b$$). Hence we have:
 
 __$$P$$'s knowledge__: 
@@ -26,25 +26,29 @@ __$$Q$$'s knowledge__:
 1. $$p = \frac{a}{q}$$ OR $$p = \frac{b}{q}$$
 2. $$p > 1$$
 
-## Round 1, Question 1:
+__Round 1, Question 1:__
 If $$\frac{a}{p} < 1$$, $$P$$ can immediately eliminate it and knows that $$q = \frac{b}{p}$$
+
 Conversely, if $$P$$ cannot immediately identify $$q$$, this must imply $$\frac{a}{p} > 1 \implies p < a$$.
+
 Hence if $$P$$ answers No in the first round, $$Q$$'s knowledge gets updated as following:
 
 __$$Q$$'s knowledge__: 
 1. $$p = \frac{a}{q}$$ OR $$p = \frac{b}{q}$$
 2. $$1 < p < a$$
 
-## Round 1, Question 2:
+__Round 1, Question 2:__
 If $$\frac{b}{q} > a$$, $$Q$$ can immediately deduce $$p$$.
+
 Conversely, if $$Q$$ cannot deduce $$p$$, this must imply $$\frac{b}{q} < a \implies q > \frac{b}{a}$$.
+
 Hence if $$Q$$ answers No in the first round, $$P$$'s knowledge gets updated as follows 
 
 __$$P$$'s knowledge__: 
 1. $$q = \frac{a}{p}$$ OR $$q = \frac{b}{p}$$
 2. $$q > \frac{b}{a}$$
 
-As we can see, after one round, $$P$$'s lower bound for $$q$$ went from $$1$$ to $$\frac{b}{a}$$. Continuing in this manner, we can see that after the $$n^{th}$$ round $$P$$'s lower bound for $$q$$ becomes $$\left( \frac{b}{a} \right)^n$$. Similarly, $$Q$$'s upper bound for $$p$$ at the end of the $$n^{th}$$ round is $$a \cdot \left( \frac{a}{b} \right)^n$$
+As we can see, after one round, $$P$$'s lower bound for $$q$$ went from $$1$$ to $$\frac{b}{a}$$. Continuing in this manner, we can see that after the $$n^{th}$$ round $$P$$'s lower bound for $$q$$ increases to $$\left( \frac{b}{a} \right)^n$$. Similarly, $$Q$$'s upper bound for $$p$$ at the end of the $$n^{th}$$ round decreases to $$a \cdot \left( \frac{a}{b} \right)^n$$
 
 Hence it's clear that sooner or later, one of them will deduce the other's number.
 
