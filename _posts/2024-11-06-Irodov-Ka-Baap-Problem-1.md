@@ -1,13 +1,13 @@
-# IKB - The Impossible Problem Version 1729.0
+# IKB - The Impossible Problem Version, 1729.0
 
-# Puzzle 1:
+# Puzzle 
 
 Two infinitely intelligent and truthful mathematicians $$P$$ and $$Q$$ meet to play a game. Each of them individually decides on a secret real number greater than 1. ($$P$$'s number is $$p$$ and $$Q$$'s number is $$q$$) They submit their numbers to a moderator M, who reveals to both of them the product pq, along with another number $$r$$. M doesn't reveal which number is $$pq$$ and which number is $$r$$. This entire setup is common knowledge between $$P$$ and $$Q$$, i.e. they both know the setup and know that the other knows the setup etc. 
 
 M then turns to $$P$$ and asks him if he knows q. If $$P$$ says no, he asks $$Q$$ if he knows p. If $$Q$$ says no, he then asks $$P$$ again, and so on. Prove that this game terminates after a finite number of rounds. 
 
 # Solution (Updated 11Nov24):
-This problem belongs to a category of puzzles that exploit the logical concept of Common Knowledge. These puzzles explore how shared knowledge, and the ability to deduce information based on what others know, can lead to surprising and often counterintuitive conclusions. Famous examples include ~~Martin Gardener's~~ Hans Freudenthal's [Impossible Puzzle](https://en.wikipedia.org/wiki/Sum_and_Product_Puzzle) and the [Blue-Eyed Islander Puzzle](https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/). If you haven't encountered these before, they are well worth exploring as quintessential examples of the genre. Also worth reading is Scott Alexander's DELIGHTFUL [short story](https://slatestarcodex.com/2015/10/15/it-was-you-who-made-my-blue-eyes-blue/) exploring the puzzle from the point of view of the islanders. 
+This problem belongs to a category of puzzles that exploit the logical concept of [Common Knowledge](https://en.wikipedia.org/wiki/Common_knowledge_(logic)). These puzzles explore how shared knowledge, and the ability to deduce information based on what others know, can lead to surprising and often counterintuitive conclusions. Famous examples include the [Blue-Eyed Islander Puzzle](https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/) and the many variants of the [Impossible Puzzle](https://en.wikipedia.org/wiki/Sum_and_Product_Puzzle). If you haven't encountered these before, they are well worth exploring as quintessential examples of the genre. Also worth reading is Scott Alexander's DELIGHTFUL [short story](https://slatestarcodex.com/2015/10/15/it-was-you-who-made-my-blue-eyes-blue/) exploring the puzzle from the point of view of the islanders. 
 
 At first glance, such puzzles can feel perplexing or even paradoxical. A common reaction is, "Where is the new information coming from?" After all, for progress to be made, the participants $$P$$ and $$Q$$ must gain new insights with each round, even though no additional explicit information is revealed. This leads to the realization that the source of this "new" information is not external but emerges from the participants’ reasoning about each other's reasoning.
 
