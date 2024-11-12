@@ -17,8 +17,4 @@ Recently however, life came full circle for me. In the course of helping some hi
 
 The solution for the previous days puzzle will be posted alongwith the puzzle for the next day. 
 
-Warning: Solutions may include long winded philosphical ramblings from me on how I came up with them. 
-
-So without further ado, lets kick off what is hopefully a long and fruitful series of blogposts. 
-
 P.S. A small fraction of you reading this are probably saying “BTW Irodov ka baap already exists, it’s called Aptitude Test Problems in Physics by SS Krotov”. To you I say, well done my friend! I doubt any one else in your life gave a fuck when you told them you had read and solved Krotov (No one did in mine) but today you got to feel smug for a few seconds and isn't that what life is all about?
