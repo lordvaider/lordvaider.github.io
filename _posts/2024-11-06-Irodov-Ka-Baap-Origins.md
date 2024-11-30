@@ -6,7 +6,7 @@ Some background here for readers who don't know - __"Problems in General Physics
 
 ![png](/images/2024-11-06/irodov.png)
 <p style="text-align: center;">
-<i>I always felt like the cover image should've been problem 3.153 - The only problem Irodov thought was worthy of a hint</i>
+<i> My personal copy looked _much_ more beaten up</i>
 </p>
 
 In Hindi, the literal meaning of the phrase "X ka baap" is "X's father", and colloquially it is used to denote something far superior to X. Hence the title "Irodov Ka Baap" was my way of claiming that my (yet to be written) book was far superior to a book beloved by several generations of my country's most brilliant students. To answer your question, yes, 18 year old me was an insufferable prick with delusions of grandeur. 

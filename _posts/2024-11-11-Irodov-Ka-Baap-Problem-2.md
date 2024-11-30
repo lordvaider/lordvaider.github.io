@@ -23,19 +23,23 @@ This problem is one of those beauties that befuddles experienced mathematicians,
 
 Firstly, we note that the set $$L(V)$$ is just the 6 edges of the tetrahedron, extended to infinity on both sides. 
 
-Let's label these lines $$E_{12}, E_{13}, E_{14}, E_{23}, E_{24}, E{34}$$. (A line is named based on the 2 vertices of the tetrahedron it passes through)
+Let's label these lines $$E_{12}, E_{13}, E_{14}, E_{23}, E_{24}, E_{34}$$. (A line is named based on the 2 vertices of the tetrahedron it passes through)
 
 If 2 lines are co-planar, the span of those lines can only include the plane containing those lines. If we want to fill space, we must focus on the skew lines. 
 
 In the set above, there are 3 pairs of skew lines - $$(E_{12}, E_{34}), (E_{14}, E_{23})$$ and $$(E_{13}, E_{24})$$. 
 
-Let's focus one of these pairs - Convince yourself that the set $$L(E_x, E_y$$) contains all points in $$R^3$$, except for two planes - The plane containing $$E_y$$ and parallel to $$E_x$$ and the plane containing $$E_x$$ and parallel to $$E_y$$. (If you're having difficulty visualizing this, you can use the fact that such a pair of skew lines can be rotated to the lines $$E_{12}: x=0, z=0$$ and $$E_{34}: x=1, y=0$$ and then algebraicially try to prove that you can attain all $$(x, y, z)$$ as linear combinations of points on these lines EXCEPT for the ones where $$x=0, z \neq 0$$ and $$x=1, y \neq 0$$.  
+Let's focus one of these pairs - Convince yourself that the set $$L(E_x, E_y$$) contains all points in $$R^3$$, except for two planes - The plane containing $$E_y$$ and parallel to $$E_x$$ and the plane containing $$E_x$$ and parallel to $$E_y$$. 
 
-For each pair of skew lines, we get a pair of parallel planes that is NOT in the image of of L(E_x, E_y). The intersections of these pairs of planes give us 4 points that are not in the image $$L(L(V))$$. 
+If you're having difficulty visualizing this, you can use the fact that such a pair of skew lines can be rotated to the lines $$E_{12}: x=0, z=0$$ and $$E_{34}: x=1, y=0$$ and then prove algebraically that you can attain all $$(x, y, z)$$ as linear combinations of points on these lines EXCEPT for the ones where $$x=0, z \neq 0$$ and $$x=1, y \neq 0$$.  
+
+For each pair of skew lines, we get a pair of parallel planes that is NOT in the image of of $$L(E_x, E_y)$$. The intersections of these pairs of planes give us 4 points that are not in the image $$L(L(V))$$. 
 
 Is there a succint way to describe these points? One of my favourite professors used to say that whenever you encounter a regular tetrahedron, one potentially fruitful avenue is to inscribe it in a cube. If you have a cube with vertices $$\in {0, 1}^3$$, then you can inscribe in it the regular tetrahedron with vertices $$(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)$$. The points not in $$L(L(V))$$ are then exactly the 4 remaining vertices of the cube. 
 
-
-
+![png](/images/2024-11-11/tetrahedron.png)
+<p style="text-align: center;">
+<i> When life gives you a tetrahedron, inscribe it in a cube</i>
+</p>
 
 
