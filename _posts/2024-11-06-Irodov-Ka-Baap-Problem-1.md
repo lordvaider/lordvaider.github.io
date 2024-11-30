@@ -9,6 +9,7 @@ M then turns to $$P$$ and asks him if he knows q. If $$P$$ says no, he asks $$Q$
 
 <details>
 <summary><b>Solution (Updated 11Nov24):</b></summary>
+{% markdown %}
 
 This problem belongs to a category of puzzles that exploit the logical concept of [Common Knowledge](https://en.wikipedia.org/wiki/Common_knowledge_(logic)). These puzzles explore how shared knowledge, and the ability to deduce information based on what others know, can lead to surprising and often counterintuitive conclusions. Famous examples include the [Blue-Eyed Islander Puzzle](https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/) and the many variants of the [Impossible Puzzle](https://en.wikipedia.org/wiki/Sum_and_Product_Puzzle). If you haven't encountered these before, they are well worth exploring as quintessential examples of the genre. Also worth reading is Scott Alexander's DELIGHTFUL [short story](https://slatestarcodex.com/2015/10/15/it-was-you-who-made-my-blue-eyes-blue/) exploring the puzzle from the point of view of the islanders. 
 
@@ -65,5 +66,6 @@ As we can see, after one round, $$P$$'s lower bound for $$q$$ increased from $$1
 Similarly, $$Q$$'s upper bound for $$p$$ at the end of the $$n^{th}$$ round decreases to $$a \cdot \left( \frac{a}{b} \right)^n$$
 
 Hence it's clear that sooner or later, one of them will deduce the other's number.
+{% endmarkdown %}
 </details>
 
