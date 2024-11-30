@@ -28,7 +28,7 @@ At the start of the game, both $$P$$ and $$Q$$ see 2 numbers $$a$$ and $$b$$ (Wi
 | **P's Knowledge**                               | **Q's Knowledge**                                |
 |-------------------------------------------------|--------------------------------------------------|
 | $$q = \frac{a}{b} \text{ OR } q = \frac{b}{a}$$ | $$p = \frac{a}{b} \text{ OR } p = \frac{b}{a}$$  |
-| $$q > 1 $$                                      | $$ p > 1 $$	                                     |
+| $$q > 1$$                                       | $$p > 1$$	                                     |
 
 __Round 1, Question 1:__
 
