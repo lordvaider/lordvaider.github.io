@@ -25,14 +25,10 @@ __Start of the game__:
 
 At the start of the game, both $$P$$ and $$Q$$ see 2 numbers $$a$$ and $$b$$ (Without loss of generality, $$a < b$$). Hence we have:
 
-__$$P$$'s knowledge__: 
-1. $$q = \frac{a}{p}$$ OR $$q = \frac{b}{p}$$
-
-2. $$q > 1$$
-
-__$$Q$$'s knowledge__: 
-1. $$p = \frac{a}{q}$$ OR $$p = \frac{b}{q}$$
-2. $$p > 1$$
+| **P's Knowledge**                               | **Q's Knowledge**                                |
+|-------------------------------------------------|--------------------------------------------------|
+| $$q = \frac{a}{b} \text{ OR } q = \frac{b}{a}$$ | $$p = \frac{a}{b} \text{ OR } p = \frac{b}{a}$$  |
+| $$q > 1 $$                                      | $$ p > 1 $$	                                     |
 
 __Round 1, Question 1:__
 
