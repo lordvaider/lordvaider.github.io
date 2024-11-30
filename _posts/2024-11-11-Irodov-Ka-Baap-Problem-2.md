@@ -14,10 +14,10 @@ where $$\ell(p, q) = \{ (1-t)p + tq : t \in \mathbb{R} \}$$ is the line passing 
 
 Thus if $$V$$ consists of the four vertices of a regular tetrahedron, then $$L(V)$$ consists of the six edges of the tetrahedron, extended infinitely in both directions. 
 
-Does $$L(L(V))$$ span all of $$R^3?
+Does $$L(L(V))$$ span all of $$R^3$$?
 
 # Solution 
-I originally saw this problem in [Stan Wagon's problem collection](https://stanwagon.com/wagon/misc/bestpuzzles.html) (Lots of cool stuff in there and worth book-marking for every puzzle enthusiast) He credits Victor Klee with creating this problem. Klee was a famous geometer, proposed the art gallery problem and showed that the worst case runtime of the simplex method is exponential. 
+I originally saw this problem in [Stan Wagon's problem collection](https://stanwagon.com/wagon/misc/bestpuzzles.html) (Lots of cool stuff in there and worth book-marking for every puzzle enthusiast) He credits Victor Klee with creating this problem. Klee was one of those badass geometers who had a fully functional amusement parks inside their brains. Among his many achievements, the ones I understood and was impressed are proposing the art gallery problem and showing that the worst case runtime of the simplex method is exponential. This problem is one of those beauties that befuddles experienced mathematicians, but requires nothing more than visual intuition to solve. 
 
 I will make some appeals to geometric intuition in what follows, as I don't have the patience to write out the algebraic proofs for some of these. 
 
