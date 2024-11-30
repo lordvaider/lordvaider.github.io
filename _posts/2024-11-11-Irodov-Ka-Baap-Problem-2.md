@@ -6,7 +6,7 @@ For a set $$E$$ in $$R^3$$, let $$L(E)$$ consist of all points on all lines dete
 More formally, define $$L(E)$$ as: 
 
 $
-L(E) = \bigcup_{\{p, q\} \subset E} \ell(p, q),
+\hspace{1cm} L(E) = \bigcup_{\{p, q\} \subset E} \ell(p, q),
 $
 
 where $$\ell(p, q) = \{ (1-t)p + tq : t \in \mathbb{R} \}$$ is the line passing through the points $$p$$ and $$q$$.
