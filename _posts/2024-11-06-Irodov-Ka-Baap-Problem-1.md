@@ -6,7 +6,9 @@ Two infinitely intelligent and truthful mathematicians $$P$$ and $$Q$$ meet to p
 
 M then turns to $$P$$ and asks him if he knows q. If $$P$$ says no, he asks $$Q$$ if he knows p. If $$Q$$ says no, he then asks $$P$$ again, and so on. Prove that this game terminates after a finite number of rounds. 
 
-# Solution (Updated 11Nov24):
+
+<details>
+<summary><b>Solution (Updated 11Nov24):</b></summary>
 This problem belongs to a category of puzzles that exploit the logical concept of [Common Knowledge](https://en.wikipedia.org/wiki/Common_knowledge_(logic)). These puzzles explore how shared knowledge, and the ability to deduce information based on what others know, can lead to surprising and often counterintuitive conclusions. Famous examples include the [Blue-Eyed Islander Puzzle](https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/) and the many variants of the [Impossible Puzzle](https://en.wikipedia.org/wiki/Sum_and_Product_Puzzle). If you haven't encountered these before, they are well worth exploring as quintessential examples of the genre. Also worth reading is Scott Alexander's DELIGHTFUL [short story](https://slatestarcodex.com/2015/10/15/it-was-you-who-made-my-blue-eyes-blue/) exploring the puzzle from the point of view of the islanders. 
 
 At first glance, such puzzles can feel perplexing or even paradoxical. A common reaction is, "Where is the new information coming from?" After all, for progress to be made, the participants $$P$$ and $$Q$$ must gain new insights with each round, even though no additional explicit information is revealed. This leads to the realization that the source of this "new" information is not external but emerges from the participants’ reasoning about each other's reasoning.
@@ -36,12 +38,13 @@ If $$\frac{a}{p} < 1$$, $$P$$ can immediately eliminate it and knows that $$q = 
 
 Conversely, if $$P$$ cannot immediately identify $$q$$, this must imply $$\frac{a}{p} > 1 \implies p < a$$.
 
-Hence if $$P$$ answers No in the first round, $$Q$$'s knowledge gets updated as following:
+Hence if $$P$$ answers **No** in the first round, $$Q$$'s knowledge gets updated as following:
 
-__$$Q$$'s knowledge__: 
-1. $$p = \frac{a}{q}$$ OR $$p = \frac{b}{q}$$
+| **P's Knowledge**                               | **Q's Knowledge**                                |
+|-------------------------------------------------|--------------------------------------------------|
+| $$q = \frac{a}{b} \text{ OR } q = \frac{b}{a}$$ | $$p = \frac{a}{b} \text{ OR } p = \frac{b}{a}$$  |
+| $$q > 1$$                                       | $$1 < p < a$$	                                 |
 
-2. $$1 < p < a$$
 
 __Round 1, Question 2:__
 
@@ -49,14 +52,17 @@ If $$\frac{b}{q} > a$$, $$Q$$ can immediately deduce $$p$$.
 
 Conversely, if $$Q$$ cannot deduce $$p$$, this must imply $$\frac{b}{q} < a \implies q > \frac{b}{a}$$.
 
-Hence if $$Q$$ answers No in the first round, $$P$$'s knowledge gets updated as follows 
+Hence if $$Q$$ answers **No** in the first round, $$P$$'s knowledge gets updated as follows 
 
-__$$P$$'s knowledge__: 
-1. $$q = \frac{a}{p}$$ OR $$q = \frac{b}{p}$$
-2. $$q > \frac{b}{a}$$
+| **P's Knowledge**                               | **Q's Knowledge**                                |
+|-------------------------------------------------|--------------------------------------------------|
+| $$q = \frac{a}{b} \text{ OR } q = \frac{b}{a}$$ | $$p = \frac{a}{b} \text{ OR } p = \frac{b}{a}$$  |
+| $$q > \frac{a}{b}$$                             | $$1 < p < a$$	                                 |
 
-As we can see, after one round, $$P$$'s lower bound for $$q$$ went from $$1$$ to $$\frac{b}{a}$$. Continuing in this manner, we can see that after the $$n^{th}$$ round $$P$$'s lower bound for $$q$$ increases to $$\left( \frac{b}{a} \right)^n$$. Similarly, $$Q$$'s upper bound for $$p$$ at the end of the $$n^{th}$$ round decreases to $$a \cdot \left( \frac{a}{b} \right)^n$$
+As we can see, after one round, $$P$$'s lower bound for $$q$$ increased from $$1$$ to $$\frac{b}{a}$$. Continuing in this manner, we can see that after the $$n^{th}$$ round $$P$$'s lower bound for $$q$$ increases to $$\left( \frac{b}{a} \right)^n$$. 
+
+Similarly, $$Q$$'s upper bound for $$p$$ at the end of the $$n^{th}$$ round decreases to $$a \cdot \left( \frac{a}{b} \right)^n$$
 
 Hence it's clear that sooner or later, one of them will deduce the other's number.
-
+</details>
 
