@@ -9,7 +9,7 @@ $$
 L(E) = \bigcup_{\{p, q\} \subset E} \ell(p, q),
 $$
 
-where $$\ell(p, q) = \{ (1-t)p + tq : t \in \mathbb{R} \}$$ is the line passing through the distinct points $$p$$ and $$q$$ in $$E$$.
+where $$\ell(p, q) = \{ (1-t)p + tq : t \in \mathbb{R} \}$$ is the line passing through the points $$p$$ and $$q$$.
 
 
 Thus if $$V$$ consists of the four vertices of a regular tetrahedron, then $$L(V)$$ consists of the six edges of the tetrahedron, extended infinitely in both directions. 
