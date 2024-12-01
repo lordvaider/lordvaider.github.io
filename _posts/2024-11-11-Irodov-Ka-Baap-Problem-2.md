@@ -17,13 +17,13 @@ Thus if $$V$$ consists of the four vertices of a regular tetrahedron, then $$L(V
 Does $$L(L(V))$$ span all of $$R^3$$?
 
 # Solution 
-I originally saw this problem in [Stan Wagon's problem collection](https://stanwagon.com/wagon/misc/bestpuzzles.html) (Lots of cool stuff in there and worth book-marking for every puzzle enthusiast) He credits Victor Klee with creating this problem. Klee was one of those badass geometers who had a fully functional amusement parks inside their brains. Among his many achievements, the ones I understood and was impressed are proposing the art gallery problem and showing that the worst case runtime of the simplex method is exponential. 
+I originally saw this problem in [Stan Wagon's problem collection](https://stanwagon.com/wagon/misc/bestpuzzles.html) (That link is worth book-marking for every puzzle enthusiast). He credits Victor Klee with creating this problem. Klee was one of those badass geometers who had a fully functional amusement park inside his brain. Among his many achievements, the ones I understood and was impressed by are proposing the Art Gallery Problem and showing that the worst case runtime of the Simplex method is exponential. 
 
-This problem is one of those beauties that befuddles experienced mathematicians, but that can be solved by a layperson with good enough geometric intuition. The solution below relies on this, as I don't have the patience to write the full blown algebraic proof. 
+This problem is one of those beauties that befuddles experienced mathematicians, but that can be solved by a layperson with good enough geometric intuition. The solution below relies on this fact, as I don't have the patience to write the full blown algebraic proof. 
 
 Firstly, we note that the set $$L(V)$$ is just the 6 edges of the tetrahedron, extended to infinity on both sides. 
 
-Let's label these lines $$E_{12}, E_{13}, E_{14}, E_{23}, E_{24}, E_{34}$$. (A line is named based on the 2 vertices of the tetrahedron it passes through)
+Let's label these lines $$E_{12}, E_{13}, E_{14}, E_{23}, E_{24}, E_{34}$$. (A line is named in correspondence with the 2 vertices of the tetrahedron it passes through)
 
 If 2 lines are co-planar, the span of those lines can only include the plane containing those lines. If we want to fill space, we must focus on the skew lines. 
 
@@ -35,7 +35,7 @@ If you're having difficulty visualizing this, you can use the fact that such a p
 
 For each pair of skew lines, we get a pair of parallel planes that is NOT in the image of of $$L(E_x, E_y)$$. The intersections of these pairs of planes give us 4 points that are not in the image $$L(L(V))$$. 
 
-Is there a succint way to describe these points? One of my favourite professors used to say that whenever you encounter a regular tetrahedron, one potentially fruitful avenue is to inscribe it in a cube. If you have a cube with vertices $$\in {0, 1}^3$$, then you can inscribe in it the regular tetrahedron with vertices $$(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)$$. The points not in $$L(L(V))$$ are then exactly the 4 remaining vertices of the cube. 
+Is there a succint way to describe these points? One of my favourite professors used to say that whenever you encounter a regular tetrahedron, one potentially fruitful avenue is to inscribe it in a cube. If you have a cube with vertices $$\in \{0, 1\}^3$$, then you can inscribe in it the regular tetrahedron with vertices $$(0, 0, 0), (0, 1, 1), (1, 0, 1)$$ and $$(1, 1, 0)$$. The points not in $$L(L(V))$$ are then exactly the 4 remaining vertices of the cube. 
 
 ![png](/images/2024-11-11/tetrahedron.png)
 <p style="text-align: center;">
