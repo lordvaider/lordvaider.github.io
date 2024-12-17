@@ -12,13 +12,19 @@ This seemed like a prime opportunity for a datadude revival post. Google has bee
 
 Google gives you your history in 2 formats. 
 
-**Raw Data:** A giant list where each entry is (Point in time, Point in space). This is the physicist’s [worldline](https://en.wikipedia.org/wiki/World_line) - Your life is just a discontinuous curve moving through 3-dimensional spacetime (The discontinuities are the times your phone wasn’t online and 3-D because Google maps doesn’t store your spatial z co-ordinate). The great thing about this format is the data schema is as simple as it can get. This has many advantages, including maximal data portability - Integrating your Google worldline and your Apple Maps worldline is a simple matter of list concatenation. The bad part is you have to do all the data crunching.
+**Raw Data:** A giant list where each entry is (Point in time, Point in space). This is the physicist’s [worldline](https://en.wikipedia.org/wiki/World_line) - Your life is just a discontinuous curve moving through 3-dimensional spacetime (The discontinuities are the times your phone wasn’t online and 3-D because Google maps doesn’t store your spatial z co-ordinate). 
 
-**Semantic Format:** Here Google uses it’s world-class, cutting edge algos and armies of highly paid data scientists to slap some meaningful labels on the raw worldline data. At a high level, your location history is divided into placeVisits (Where you spend some time stationary at location X) and activitySegment (Where you travel between location X and Y). The placeVisits may have some information like the address and the the activitySegments may have information like mode of transport etc. 
+The great thing about this format is the data schema is as simple as it can get. This has many advantages, including maximal data portability - Integrating your Google worldline and your Apple Maps worldline is a simple matter of list concatenation. 
 
-The problem with these is that the datamodel is complicated and varies over time. So you if you use field x in your analysis, you have no guarantee that it will exist in all the datapoints for your entire timeline or that it will exist in future timeline objects. 
+The bad part is you have to do all the data crunching. There are also some weird issues that crop up when using the raw data - For eg. soon after I moved to the UK, there is a patch in my raw data that shows my physical position as alternating between London and Mumbai. I suspsect this is because I was logged in to my Google account on both, my PC in my parent's home and my cellphone, and my position was being recorded from both devices simultaneously. 
 
-Further, Google will sometimes fuck up the tagging of activitySegments (like the time they thought I cycled from Lucknow to Mumbai in 2 hours)
+**Semantic Format:** Here Google uses it’s world-class, cutting edge algos and armies of highly paid data scientists to slap some meaningful labels on the raw worldline data. At a high level, your location history is divided into placeVisits (Where you spend some time stationary at location X) and activitySegment (Where you travel between location X and Y). 
+
+Each placeVisit contains information like the coordinates of the place visited, the duration spent there, the address as inferred by Google etc. Each activitySegment has information like the start and end coordinates, the path followed and the inferred mode of transport for that edge. 
+
+The problem with these is that the datamodel is complicated and varies over time. For example, in my semantic data, each activitySegment contains a field 'activities', which is a probability distribution over the possible modes of transport that activity involved. Now most (But not all) activitySegments also contain a field called 'activityType', which is assigned value of the most likely activity in the list. Hence any solution that uses the 'activityType' field may miss some information. Without an official dictionary from Google clearly fleshing out what these fields mean, we are forced to rely on our common sense to make sense of these fields, and while that is good enough for most cases, it will certainly not cover all cases. 
+
+Further, Google will sometimes fuck up the tagging of activitySegments (like the time they thought I cycled from Lucknow to Mumbai in 2 hours). For the most part however, they are probably doing a better job of cleaning up and interpreting this data than I can.
 
 ## Approach 1 - Rawdogging data, Costly API calls, Simplifying assumptions
 
@@ -37,7 +43,8 @@ Now there will obviously be some discontinuities which were not travel related -
 1. Evaluate the physical distance between consecutive points in the worldline (I used the [Haversine metric](https://en.wikipedia.org/wiki/Haversine_formula), just to show off more than anything else). 
 2. Reverse-sorted and got the consecutive worldline points with the largest distance between them. These are the gaps.  
 3. Applied a sensible threshold cutoff - 500 kms seems like a good lower bound for international flights. 
-4. Mapped the remaining few hundred points to countries
+4. Mapped the remaining few hundred points to coun
+tries
 5. Filtered down to the gaps where start_country != end_country 
 
 And voila! I had a table of all my international travels.
@@ -59,11 +66,13 @@ Chronologically, this was the first approach that I took to solve this problem -
 
 This idea is obvious enough that a few other people have implemented their own versions of it:
 
-1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution was the optimal mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). If Lauren already solved the problem, why blog my solution?  Well I could give you reasons like my algorithm is slightly different or that it's implemented in python instead of R, but really it's because because Pete Campbell is my spirit animal. 
+1. [Laurens Geffert](https://janlauge.github.io/2021/google_timeline_travel_history/): One of the aforementioned highly talented Google data scientists - His solution is kind of a mix of my 2 approaches - He whittled down the space of points required by focussing on the processed data and then mapped it using a country lookup. I suspect the API he used to do the country lookups was also much more performant than the one I used (I just used whatever ChatGPT recommended). I should add here that, like me, he also performed a sanity check of the results and manually removed a few obviously nonsensical datapoints. 
+
+If Laurens has already solved the problem, why blog my solution?  Well I could give you reasons like I used a different algorithm or that it's implemented in python instead of R, but mostly it's because because Peter Campbell is my spirit animal. 
 
 	![png](/images/2024-05-26/campbell.png)
 	<p style="text-align: center;">
-	<i>You tell 'em Pete!</i>
+	<i>Yeah, you tell 'em Pete!</i>
 	</p>
 2. [Geoprocessing](https://geoprocessing.online/): This company lets you upload your timeline data and then helps you with various analyses. I didn’t want to upload my data anywhere so haven’t experimented with this.
 3. [Mileagewise](https://www.mileagewise.com/): They use Google timeline data to create mileage logs (In the US you can claim tax benefits by claiming the mileage incurred while driving around as a business expense) This is a very different usecase from the one considered here, but I threw it in because it's an ingenious use of timeline data.

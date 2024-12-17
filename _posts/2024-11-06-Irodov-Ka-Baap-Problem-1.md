@@ -1,4 +1,4 @@
-# IKB - The Impossible Problem Version, 1729.0
+# IKB - The Impossible Problem, Version 1729.0
 
 # Puzzle 
 
