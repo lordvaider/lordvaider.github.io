@@ -74,7 +74,6 @@ If Laurens has already solved the problem, why blog my solution?  Well I could g
 <p style="text-align: center;">
 <i>Yeah, you tell 'em Pete!</i>
 </p>
-
 2. [Geoprocessing](https://geoprocessing.online/): This company lets you upload your timeline data and then helps you with various analyses. I didn’t want to upload my data anywhere so haven’t experimented with this.
 3. [Mileagewise](https://www.mileagewise.com/): They use Google timeline data to create mileage logs (In the US you can claim tax benefits by claiming the mileage incurred while driving around as a business expense) This is a very different usecase from the one considered here, but I threw it in because it's an ingenious use of timeline data.
 
