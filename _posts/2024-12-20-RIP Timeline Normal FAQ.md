@@ -26,7 +26,7 @@ __N:__ Ok I'll bite - How do I see my Timeline?
 
 It used to be that you could open up your Timeline on any device you are logged into your Google account on. By using a service called Google Takeout, you could also download a json file containing your entire Timeline history data. 
 
-Going forth Google is making a change where the Timeline data will all live on your mobile device and not be maintained on their servers - You will have an option to keep an encrypted backup on their servers, but this is for the purpose of maintaining Timeline continuity when you change your mobile device. 
+Going forth Google is making a change where the Timeline data will all live on your mobile device and not be maintained on their servers - You will have an option to keep an encrypted backup on their servers, but this is for the purpose of maintaining Timeline continuity when you change your mobile device. There have been complaints from several users who have lost decades of data due to dark patterns and weird bugs in this migration process. 
 
 __N:__ Hmm ok, so I spent like 5 mins playing around with this... Now what? I mean you can geek out over this data all you want, but can you bottom line it for me? What's the point of it?
 
@@ -63,7 +63,7 @@ Look, at this point, we've all signed away our lives to our tech overlords. If t
 
 __N:__ Ok I think you've successfully Pascal wager-ed me into it - Even if this data is functionally worthless to me at this moment, it costs nothing to save it down and have it in case it becomes useful later on. Is there a detailed guide somewhere on the internet that gives me step by step instructions on how to proceed with the Timeline migration?
 
-__D:__ Fear not my friend, the Datadude has you covered. Now that you're (somewhat) convinced of the need to preserve your Timeline data, you can proceed to my FAQ for converts to learn exactly the steps you must take in order to safely migrate to the new version of Timeline without losing your data.
+__D:__ Fear not my friend, the Datadude has you covered. Now that you're (somewhat) convinced of the importance of your Timeline data, you can proceed to my FAQ for converts to learn exactly the steps you must take in order to safely migrate to the new version of Timeline without losing your data.
 
 
 # Footnotes
